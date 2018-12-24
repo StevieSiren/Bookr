@@ -1,0 +1,129 @@
+#listener-dash {
+    display: flex;
+    height: 100vh;
+}
+
+
+.listener-dash--left {
+    flex: 2;
+    background-color: #2a2e31;
+    display: flex;
+    flex-direction: column;
+}
+
+.listener-dash--left_user {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(170, 170, 170, 0.39);
+}
+
+.listener-dash--left_user h5 {
+    font-weight: 300;
+    color: rgba(236, 236, 236, 0.726);
+}
+
+.listener-dash--left_options {
+    flex: 7;
+    display: flex;
+    flex-direction: column;
+}
+
+.listener-dash--left_options ul {
+    list-style: none;
+    color: rgba(236, 236, 236, 0.377);
+    text-transform: uppercase;
+    text-align: left;
+    letter-spacing: 2px;
+    font-size: .85rem;
+    width: 100%;
+}
+
+.listener-dash--left_options i {
+    margin-right: 8px;
+    margin-left: 70px;
+}
+
+.listener-dash--left_options ul li {
+    padding: 20px 0;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.listener-dash--left_options ul li:hover {
+    color: #d46f27;
+}
+
+.listener-dash--left_footer {
+    font-weight: 300;
+    font-size: .8rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.listener-dash--left_footer a:link,
+.listener-dash--left_footer a:visited {
+    text-decoration: underline;
+    color: rgba(236, 236, 236, 0.726);
+}
+
+.listener-dash--active {
+    color: #d46f27;
+    position: relative;
+}
+
+.listener-dash--active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #d46f27;
+}
+
+
+
+/* RIGHT */
+
+.listener-dash--right {
+    flex: 8;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    background-color: #eceef2;
+    overflow-y: scroll;
+}
+
+.listener-dash--right_title {
+    grid-row: 1 / 2;
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.listener-dash--right_title h2 {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #2a2e31;
+}
+
+.listener-dash--right_content {
+    grid-row: 2 / -1;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 30px;
+}
+
+.listener-dash--right_content > * {
+    margin-right: 50px;
+}

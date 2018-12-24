@@ -26,7 +26,7 @@ app.get('/signup', (req, res) => {
 
 // User Dashboard
 app.get('/home/listener/:id', (req, res) => {
-    res.render('listener-dash');
+    res.render('listenerdash');
 });
 
 

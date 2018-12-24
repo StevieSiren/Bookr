@@ -10,6 +10,10 @@ input:focus {
     display: flex;
 }
 
+.signup-area {
+    width: 50%;
+}
+
 .signup-left {
     flex: 2;
 }
@@ -37,6 +41,7 @@ input:focus {
 }
 
 .signup-area input {
+    color: rgba(236, 236, 236, 0.75);
     display: block;
     background-color: transparent;
     border: none;
@@ -47,11 +52,49 @@ input:focus {
     transition: all 0.3s;
 }
 
-.singup-area input:focus {
-    outline: 1px solid #d46f27;
-    /* border-bottom: 1px solid #d46f27; */
+.signup-area input:visible {
+    border-bottom-color: 1px solid #d46f27;
+}
+
+.signup-form p {
+    font-size: .75rem;
+    color: rgb(236, 236, 236);
+    padding-bottom: 10px;
+}
+
+.signup-form p span {
+    color: #d46f27;
+    cursor: pointer;
+}
+
+.signup-footer {
+    color: rgba(236, 236, 236, 0.75);
+    font-size: .75rem;
+    margin-top: 30px;
 }
 
 .signup-right {
     flex: 2;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    .signup-left {
+        display: none;
+    }
+
+    .signup-center {
+        flex: 1;
+    }
+    .signup-right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .signup-area {
+        width: 75%;
+    }
 }
