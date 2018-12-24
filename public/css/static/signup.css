@@ -52,8 +52,8 @@ input:focus {
     transition: all 0.3s;
 }
 
-.signup-area input:visible {
-    border-bottom-color: 1px solid #d46f27;
+.signup-area input:focus {
+    border-bottom-color: 1px solid #d46f27 !important;
 }
 
 .signup-form p {

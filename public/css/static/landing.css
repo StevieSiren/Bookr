@@ -46,3 +46,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+.landing-header--cta a {
+    text-decoration: none;
+}

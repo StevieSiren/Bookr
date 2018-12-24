@@ -24,10 +24,19 @@ app.get('/signup', (req, res) => {
 });
 
 
-// User Dashboard
-app.get('/home/listener/:id', (req, res) => {
+// FAN DASHBOARD
+app.get('/fan/:id', (req, res) => {
     res.render('listenerdash');
 });
+
+
+
+
+// ARTIST PROFILE PUBLIC END
+app.get('/artist/:id', (req, res) => {
+    res.render('profile-artist');
+});
+
 
 
 

@@ -1,4 +1,11 @@
-// CONTROL THE ACTIVE CLASS OF THE OPTIONS //
+// Selecting the tab titles
+const showsTitle = document.querySelector('#myshows-title'),
+      discoverTitle = document.querySelector('#discover-title'),
+      testBtn = document.querySelector('#test-btn'),
+      content = document.querySelector('.listener-dash--right_content');
+
+
+// CONTROL THE ACTIVE CLASS OF THE TAB OPTIONS //
 
 const optionsList = () => {
     const options = document.querySelectorAll('.listener-dash--left_options li'),
@@ -19,3 +26,6 @@ const toggleActiveClass = (e) => {
   }
 
 optionsList();
+
+
+

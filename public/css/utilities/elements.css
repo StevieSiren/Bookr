@@ -24,12 +24,13 @@
 .primary-btn--alt {
     padding: 12px 35px;
     border: 1px solid #d46f27;
-    margin: 20px 0;
+    margin: 30px 0;
     color: #d46f27;
     background: transparent;
     cursor: pointer;
     border-radius: 100px;
     transition: all .3s ease;
+    font-size: 1rem;
 }
 
 .primary-btn--alt:hover {
@@ -44,6 +45,12 @@
     border: none;
     font-weight: 300;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-utility:hover {
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -84,6 +91,12 @@
 .card-shows--content h3 {
     color: #555;
     padding: 15px 30px 0px 30px;
+}
+
+.card-shows--content h3 a:link,
+.card-shows--content h3 a:visited {
+    text-decoration: none;
+    color: #555;
 }
 
 .card-shows--content_location {

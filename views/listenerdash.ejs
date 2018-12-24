@@ -9,8 +9,8 @@
         </div>
         <div class="listener-dash--left_options">
             <ul>
-                <li class="listener-dash--active"><i class="fas fa-music"></i> My Shows</li>
-                <li><i class="fas fa-play"></i> My Artists</li>
+                <li class="listener-dash--active"><i class="fas fa-play"></i> My Artists</li>
+                <li><i class="fas fa-music"></i> My Shows</li>
                 <li><i class="fas fa-align-left"></i> Feed</li>
                 <li><i class="fas fa-search"></i> Discover</li>
                 <li><i class="fas fa-user-friends"></i> Friends</li>
@@ -21,11 +21,17 @@
         </footer>
     </div>
 
+
+
+
+
+
     <div class="listener-dash--right">
 
         <div class="listener-dash--right_title">
-            <h2>My Shows</h2>
-            <button class="btn-utility">Filter <i class="fas fa-chevron-down"></i></button>
+            <h2 id="myshows-title listener-dash--activecontent">My Artists</h2>
+            <h2 id="discover-title"></h2>
+            <button class="btn-utility" id="test-btn">Filter <i class="fas fa-chevron-down"></i></button>
         </div>
 
         <div class="listener-dash--right_content">
@@ -33,8 +39,8 @@
                 <figure class="card-shows--img"><img src="/img/artist1.jpg" alt="" class="grid-img"></figure>
                 <div class="card-shows--content">
                     <div>
-                        <h3>Flying Lotus</h3>
-                        <p><span class="card-shows--content_location">Los Angeles, CA</span> | <span class="card-shows--content_fans">1,277 Fans</span></p>
+                        <h3><a href="#">Flying Lotus</a></h3>
+                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span> | <span class="card-shows--content_fans">1,277 Fans</span></p>
                     </div>
                     
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum 
@@ -54,7 +60,7 @@
                 <div class="card-shows--content">
                     <div>
                         <h3>Foy Vance</h3>
-                        <p><span class="card-shows--content_location">Los Angeles, CA</span> | <span class="card-shows--content_fans">968
+                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span> | <span class="card-shows--content_fans">968
                                 Fans</span></p>
                     </div>
             
@@ -76,7 +82,7 @@
                 <div class="card-shows--content">
                     <div>
                         <h3>Siren</h3>
-                        <p><span class="card-shows--content_location">Seattle, WA</span> | <span class="card-shows--content_fans">322
+                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Seattle, WA</span> | <span class="card-shows--content_fans">322
                                 Fans</span></p>
                     </div>
             
@@ -98,7 +104,7 @@
                     <div class="card-shows--content">
                         <div>
                             <h3>Siren</h3>
-                            <p><span class="card-shows--content_location">Seattle, WA</span> | <span class="card-shows--content_fans">322
+                            <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Seattle, WA</span> | <span class="card-shows--content_fans">322
                                     Fans</span></p>
                         </div>
                 
