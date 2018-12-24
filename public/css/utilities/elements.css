@@ -1,0 +1,85 @@
+/* ===================================
+==== BUTTONS =================
+====================================== */
+
+.primary-btn--alt {
+    padding: 12px 35px;
+    border: 1px solid #d46f27;
+    margin: 20px 0;
+    color: #d46f27;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all .3s ease;
+}
+
+.primary-btn--alt:hover {
+    border: 1px solid rgb(236, 236, 236);
+    color: rgb(236, 236, 236);
+}
+
+
+
+
+/* ===================================
+==== CARDS =================
+====================================== */
+
+.card-info--1 {
+    width: 400px;
+    /* height: 175px; */
+    border: #ccc;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    margin: 20px;
+    border: 1px solid #ccc;
+}
+
+.card-info--1 i {
+    color: rgb(236, 236, 236);
+}
+
+.card-info--1_img {
+    height: 100%;
+    flex: 3;
+    background-color: #d46f27;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    line-height: 195px;
+}
+
+.card-info--1_text {
+    flex: 7;
+    margin-left: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-info--title {
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.card-info--description {
+    color: #666;
+    font-weight: 300;
+}
+
+.card-info--1 a {
+    color: #d46f27;
+    text-decoration: none;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.card-info--1 a:hover {
+    color: #b85712;
+}

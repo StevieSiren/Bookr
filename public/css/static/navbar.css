@@ -1,0 +1,140 @@
+/* ===================================
+==== NAVIGATION MENU =================
+====================================== */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #2a2e31;
+    position: relative;
+}
+
+.logo {
+    color: rgb(236, 236, 236);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    display: flex;
+    width: 25%;
+    justify-content: space-around;
+}
+
+
+.nav-links a {
+    color: rgb(236, 236, 236);
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: .8rem;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+
+.nav-links a:hover {
+    color: #d46f27;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.burger {
+    display: none;
+    z-index: 100;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(236, 236, 236);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+
+.navlink-btn {
+    padding: 10px 20px;
+    background: transparent;
+    border: 1px solid #d46f27;
+    color: #d46f27;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+}
+
+.navlink-btn:hover {
+    color: rgb(236, 236, 236);
+    background-color: #d46f27af;
+}
+
+/* Nav Menu Media Queries */
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+        z-index: 100;
+        position: absolute;
+        right: 0;
+        height: 92vh;
+        top: 8vh;
+        background-color: #2a2e31;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 55%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+/* Controlling the navbar with JS */
+.nav-active {
+    transform: translateX(0%);
+}
+
+/* ANIMATIONS */
+
+@keyframes navLinksFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle-burger .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle-burger .line2 {
+    opacity: 0;
+}
+
+.toggle-burger .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}

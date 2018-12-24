@@ -1,0 +1,40 @@
+const express = require('express'),
+      app = express(),
+      path = require('path'),
+      bodyParser = require('body-parser');
+
+
+app.use(express.static(path.join(__dirname + '/public')));
+app.set('view engine', 'ejs');
+
+
+
+// ===============================================================================
+// === ROUTES ====================================================================
+// ===============================================================================
+
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+
+// Signup Page
+app.get('/signup', (req, res) => {
+    res.render('signup');
+});
+
+
+// User Dashboard
+app.get('/home/listener/:id', (req, res) => {
+    res.render('listener-dash');
+});
+
+
+
+// ===============================================================================
+// === APP LISTENING ====================================================================
+// ===============================================================================
+
+app.listen(8080, () => {
+    console.log('Bookr is live.');
+});

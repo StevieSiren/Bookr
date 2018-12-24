@@ -1,0 +1,48 @@
+/* ===================================
+==== HEADER =================
+====================================== */
+
+.landing-header {
+    height: 92vh;
+    background: url('../../img/landingbg.png');
+    background-size: cover;
+    position: relative;
+}
+
+.landing-content {
+    color: rgb(236, 236, 236);
+    font-weight: 300;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.landing-title {
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.landing-subtitle {
+    font-weight: 300;
+    font-size: 1.5rem;
+    opacity: .75;
+}
+
+
+
+/* ===================================
+==== SECTION 1 =================
+====================================== */
+
+.landing-1 {
+    position: relative;
+    height: 65vh;
+    background-color: #eee;
+}
+
+.landing-1--content {
+    width: 85%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
