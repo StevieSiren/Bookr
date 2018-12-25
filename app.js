@@ -4,7 +4,9 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose');
 
-
+// Requiring the routes
+const homeRoute = require('./routes/route-home'),
+      artists = require('./routes/route-artist');
 
 // ===============================================================================
 // === APP SETUP ====================================================================
@@ -20,7 +22,7 @@ mongoose.connect("mongodb://localhost:27017/bookr-test-data");
 
 
 // ===============================================================================
-// === TEST DATA ====================================================================
+// === TEST DATA | SEEDING THE DATABASE ==========================================
 // ===============================================================================
 
 const seedDB = require('./seeds');
@@ -32,9 +34,20 @@ seedDB();
 // === ROUTES ====================================================================
 // ===============================================================================
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
+// HOMEPAGE / INDEX
+
+app.use('/', homeRoute);
+
+
+// ARTIST ROUTES
+
+app.use('/', artists);          
+
+
+
+
+
+
 
 
 // Signup Page
@@ -48,15 +61,6 @@ app.get('/fan/:id', (req, res) => {
     res.render('listenerdash', {artists: artists});
 });
 
-
-
-
-// ARTIST PROFILE PUBLIC END
-app.get('/artist/:id', (req, res) => {
-    var foundId = req.params.id;
-    
-    res.render('profile-artist');
-});
 
 
 

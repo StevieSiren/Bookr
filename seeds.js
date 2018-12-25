@@ -2,17 +2,8 @@ const mongoose = require('mongoose');
 
 const Artist = require('./models/Artist');
 
-// class Artist {
-//     constructor(name, imgSource, id)  {
-//         this.name = name;
-//         this.imgSource = imgSource;
-//         this.id = id;
-//     }
-// }
 
-// flyingLotus = new Artist('Flying Lotus', '/img/artist1.jpg', 'sdfkl56');
-// foyVance = new Artist('Foy Vance', '/img/artist2.jpg', 'lskdfn');
-
+// Seed the database to create some fake data for testing
 
 var data = [
     {
