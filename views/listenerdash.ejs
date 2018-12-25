@@ -9,11 +9,11 @@
         </div>
         <div class="listener-dash--left_options">
             <ul>
-                <li class="listener-dash--active"><i class="fas fa-play"></i> My Artists</li>
-                <li><i class="fas fa-music"></i> My Shows</li>
-                <li><i class="fas fa-align-left"></i> Feed</li>
-                <li><i class="fas fa-search"></i> Discover</li>
-                <li><i class="fas fa-user-friends"></i> Friends</li>
+                <li class="listener-dash--active" id="my-artists-btn"><i class="fas fa-play"></i> My Artists</li>
+                <li id="my-shows-btn"><i class="fas fa-music"></i> My Shows</li>
+                <li id="feed-btn"><i class="fas fa-align-left"></i> Feed</li>
+                <li id="discover-btn"><i class="fas fa-search"></i> Discover</li>
+                <li id="friends-btn"><i class="fas fa-user-friends"></i> Friends</li>
             </ul>
         </div>
         <footer class="listener-dash--left_footer">
@@ -26,7 +26,7 @@
 
 
 
-    <div class="listener-dash--right">
+    <div class="listener-dash--right" id="fan-dash--content">
 
         <div class="listener-dash--right_title">
             <h2 id="myshows-title listener-dash--activecontent">My Artists</h2>
@@ -34,78 +34,16 @@
             <button class="btn-utility" id="test-btn">Filter <i class="fas fa-chevron-down"></i></button>
         </div>
 
-        <div class="listener-dash--right_content">
-            <div class="card card-shows">
-                <figure class="card-shows--img"><img src="/img/artist1.jpg" alt="" class="grid-img"></figure>
-                <div class="card-shows--content">
-                    <div>
-                        <h3><a href="#">Flying Lotus</a></h3>
-                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span> | <span class="card-shows--content_fans">1,277 Fans</span></p>
-                    </div>
-                    
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum 
-                        consequuntur maiores aut commodi deserunt?
-                    </p>
-                </div>
-                <div class="card-shows--friends">
-                    <img src="/img/profile2.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile4.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile1.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile3.jpg" alt="" class="stacked-img">
-                    <p>+ <span>24 more</span></p>
-                </div>
-            </div>
-            <div class="card card-shows">
-                <figure class="card-shows--img"><img src="/img/artist2.jpg" alt="" class="grid-img"></figure>
-                <div class="card-shows--content">
-                    <div>
-                        <h3>Foy Vance</h3>
-                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span> | <span class="card-shows--content_fans">968
-                                Fans</span></p>
-                    </div>
-            
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum
-                        consequuntur maiores aut commodi deserunt?
-                    </p>
-                </div>
-                <div class="card-shows--friends">
-                    <img src="/img/profile1.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile3.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile4.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile2.jpg" alt="" class="stacked-img">
-                    <p>+ <span>24 more</span></p>
-                </div>
-            </div>
-    
-            <div class="card card-shows">
-                <figure class="card-shows--img"><img src="/img/artist4.jpg" alt="" class="grid-img"></figure>
-                <div class="card-shows--content">
-                    <div>
-                        <h3>Siren</h3>
-                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Seattle, WA</span> | <span class="card-shows--content_fans">322
-                                Fans</span></p>
-                    </div>
-            
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum
-                        consequuntur maiores aut commodi deserunt?
-                    </p>
-                </div>
-                <div class="card-shows--friends">
-                    <img src="/img/profile2.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile3.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile1.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile4.jpg" alt="" class="stacked-img">
-                    <p>+ <span>24 more</span></p>
-                </div>
-            </div>
+        <div class="listener-dash--right_content fandash-active--content" id="my-artists--content">
+            <% artists.forEach((artist) => { %>
 
-            <div class="card card-shows">
-                    <figure class="card-shows--img"><img src="/img/artist4.jpg" alt="" class="grid-img"></figure>
+                <div class="card card-shows">
+                    <figure class="card-shows--img"><img src="<%= artist.imgSource %>" alt="" class="grid-img"></figure>
                     <div class="card-shows--content">
                         <div>
-                            <h3>Siren</h3>
-                            <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Seattle, WA</span> | <span class="card-shows--content_fans">322
-                                    Fans</span></p>
+                            <h3><a href="/artist/<%= artist.id %>"><%= artist.name %></a></h3>
+                            <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span>
+                                | <span class="card-shows--content_fans">1,277 Fans</span></p>
                         </div>
                 
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto laborum
@@ -114,14 +52,18 @@
                     </div>
                     <div class="card-shows--friends">
                         <img src="/img/profile2.jpg" alt="" class="stacked-img">
-                        <img src="/img/profile3.jpg" alt="" class="stacked-img">
-                        <img src="/img/profile1.jpg" alt="" class="stacked-img">
                         <img src="/img/profile4.jpg" alt="" class="stacked-img">
+                        <img src="/img/profile1.jpg" alt="" class="stacked-img">
+                        <img src="/img/profile3.jpg" alt="" class="stacked-img">
                         <p>+ <span>24 more</span></p>
                     </div>
                 </div>
-            
+
+            <% }); %>
+
         </div>
+
+        <div id="discover--content">Hello World</div>
 
 
     </div>
