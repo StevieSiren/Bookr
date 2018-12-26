@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
 const Artist = require('./models/Artist'),
-      Shows = require('./models/Shows');
+      Shows = require('./models/Shows'),
+      Fan = require('./models/Fan'),
+      SavedArtist = require('./models/SavedArtist');
 
 
 // Seed the database to create some fake data for testing
@@ -48,6 +50,15 @@ var showData = [
     }
 ];
 
+var fanData = [
+    {
+        name: 'Stephen Thomas'
+    },
+    {
+        name: 'Jenn Lawler'
+    }
+];
+
 async function seedShows() {
     await Shows.remove({}, (err) => {
         if(err) {
@@ -71,34 +82,76 @@ async function seedShows() {
     });
 }
 
-function seedDB() {
-    // Remove all artists
-    Artist.remove({}, (err) => {
+function seedArtists() {
+// Remove all artists
+Artist.remove({}, (err) => {
+    if(err) {
+        console.log('There was an error!');
+        console.log(err);
+    } else {
+        console.log('Removed all Artists');
+    }
+});
+
+// Add some artists
+artistData.forEach((artistSeed) => {
+    Artist.create(artistSeed, (err, artist) => {
         if(err) {
-            console.log('There was an error!');
             console.log(err);
         } else {
-            console.log('Removed all Artists');
+            console.log('New artists added to DB');
+        }
+    });
+});
+}
+
+function seedFans() {
+    // Remove all fans
+    Fan.remove({}, (err) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log('All fans removed');
         }
     });
 
-    // Add some artists
-    artistData.forEach((artistSeed) => {
-        Artist.create(artistSeed, (err, artist) => {
+    // Create new fans & saved artists
+    fanData.forEach((fanSeed) => {
+        Fan.create(fanSeed, (err, fan) => {
             if(err) {
                 console.log(err);
             } else {
-                console.log('New artists added to DB');
+                console.log('New fan added.');
+
+                // Need to somehow push an already-existing artist here instead...
+                SavedArtist.create({
+                    name: 'Test Saved Artist',
+                    img: 'I am img source.'
+                }, (err, savedArtist) => {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        fan.savedArtists.push(savedArtist);
+                        fan.save();
+                        console.log('Created new saved artist!');
+                    }
+                });
             }
         });
     });
+}
+
+function seedDB() {
+    
+    // SEED ARTISTS
+    seedArtists();
 
     // Seed shows
     seedShows();
 
-
-    
-    
+    // Seed Fans
+    seedFans();
+ 
 };
 
 module.exports = seedDB;
