@@ -6,13 +6,18 @@ const express = require('express'),
 
 // Requiring the routes
 const homeRoute = require('./routes/route-home'),
-      artists = require('./routes/route-artist');
+      artists = require('./routes/route-artist'),
+      fans = require('./routes/routes-fan');
+
+// GETTING THE DATA MODELS
+const Artist = require('./models/Artist');
 
 // ===============================================================================
 // === APP SETUP ====================================================================
 // ===============================================================================
 
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 
 // DATABASE CONNECTION
@@ -27,7 +32,7 @@ mongoose.connect("mongodb://localhost:27017/bookr-test-data");
 
 const seedDB = require('./seeds');
 
-seedDB();
+// seedDB();
 
 
 // ===============================================================================
@@ -41,12 +46,15 @@ app.use('/', homeRoute);
 
 // ARTIST ROUTES
 
-app.use('/', artists);          
+app.use('/artists', artists);          
 
 
 
 
 
+
+// FAN ROUTES
+app.use('/fans', fans);
 
 
 
@@ -54,15 +62,6 @@ app.use('/', artists);
 app.get('/signup', (req, res) => {
     res.render('signup');
 });
-
-
-// FAN DASHBOARD
-app.get('/fan/:id', (req, res) => {
-    res.render('listenerdash', {artists: artists});
-});
-
-
-
 
 
 // ===============================================================================

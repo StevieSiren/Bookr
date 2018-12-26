@@ -1,0 +1,86 @@
+<% include partials/header-authenticated %>
+
+
+<main id="listener-dash">
+    <div class="listener-dash--left">
+        <div class="listener-dash--left_user">
+            <img src="/img/profile1.jpg" alt="Profile Picture" class="profile-img">
+            <h5>Stephen Thomas</h5>
+        </div>
+        <div class="listener-dash--left_options">
+            <ul>
+                <li class="listener-dash--active" onclick="openContent('fandash-artists--content', this)" id="fan-dashboard--defaultopen"><i class="fas fa-play"></i> My Artists</li>
+                <li onclick="openContent('fandash-shows--content', this)"><i class="fas fa-music"></i> My Shows</li>
+                <li onclick="openContent('fandash-feed--content', this)"><i class="fas fa-align-left"></i> Feed</li>
+                <li onclick="openContent('fandash-discover--content', this)"><i class="fas fa-search"></i> Discover</li>
+                <li onclick="openContent('fandash-friends--content', this)"><i class="fas fa-user-friends"></i> Friends</li>
+            </ul>
+        </div>
+        <footer class="listener-dash--left_footer">
+            <a href="#">Help</a> <span>|</span> <a href="#">Logout</a>
+        </footer>
+    </div>
+
+
+
+
+
+
+    <div class="listener-dash--right" id="fan-dashboard--content">
+
+        <div class="listener-dash--right_title">
+            <h2 id="fan-dashboard--title">My Artists</h2>
+            <h2 id="discover-title"></h2>
+            <button class="btn-utility" id="test-btn">Filter <i class="fas fa-chevron-down"></i></button>
+        </div>
+
+        <div class="listener-dash--right_content fan-dashboard--content" id="fandash-artists--content">
+            <% artists.forEach((artist) => { %>
+
+                <div class="card card-shows">
+                    <figure class="card-shows--img"><img src="<%= artist.img %>" alt="" class="grid-img"></figure>
+                    <div class="card-shows--content">
+                        <div>
+                            <h3><a href="/artists/<%= artist._id %>"><%= artist.name %></a></h3>
+                            <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span>
+                                | <span class="card-shows--content_fans"><%= artist.fans %> Fans</span></p>
+                        </div>
+                
+                        <p class="card-artists--description"><%= artist.description %></p>
+                    </div>
+                    <div class="card-shows--friends">
+                        <img src="/img/profile2.jpg" alt="" class="stacked-img">
+                        <img src="/img/profile4.jpg" alt="" class="stacked-img">
+                        <img src="/img/profile1.jpg" alt="" class="stacked-img">
+                        <img src="/img/profile3.jpg" alt="" class="stacked-img">
+                        <p>+ <span>24 more</span></p>
+                    </div>
+                </div>
+
+            <% }); %>
+
+        </div>
+
+        
+        
+        
+        
+        
+        <div id="fandash-shows--content" class="fan-dashboard--content">
+            <% shows.forEach((show) => { %>
+                <a><%= show.artist %></a>
+            <% }); %>
+        </div>
+        <div id="fandash-feed--content" class="fan-dashboard--content">Feed</div>
+        <div id="fandash-discover--content" class="fan-dashboard--content">Discover</div>
+        <div id="fandash-friends--content" class="fan-dashboard--content">Friends</div>
+
+
+    </div>
+</main>
+
+
+
+
+<script src="/js/dashboard-fan.js"></script>
+<% include partials/footer %>
