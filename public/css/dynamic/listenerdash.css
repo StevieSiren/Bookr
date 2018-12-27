@@ -92,6 +92,7 @@
     flex: 8;
     display: grid;
     grid-template-rows: 20% 80%;
+    /* grid-column-gap: 10px; */
     background-color: #eceef2;
     overflow-y: scroll;
 }

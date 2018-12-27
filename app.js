@@ -7,7 +7,8 @@ const express = require('express'),
 // REQUIRING THE ROUTES
 const homeRoute = require('./routes/route-home'),
       artists = require('./routes/route-artist'),
-      fans = require('./routes/routes-fan');
+      fans = require('./routes/routes-fan'),
+      discover = require('./routes/routes-discover');
 
 // GETTING THE DATA MODELS
 const Artist = require('./models/Artist');
@@ -22,7 +23,7 @@ app.set('view engine', 'ejs');
 
 // DATABASE CONNECTION
 
-mongoose.connect("mongodb://localhost:27017/bookr-test-data");
+mongoose.connect("mongodb://localhost:27017/bookr-test-data", {useNewUrlParser: true});
 
 
 
@@ -49,7 +50,8 @@ app.use('/', homeRoute);
 app.use('/artists', artists);          
 
 
-
+// DISCOVER ROUTES
+app.use('/discover', discover);
 
 
 
