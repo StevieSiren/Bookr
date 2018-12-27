@@ -4,7 +4,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose');
 
-// Requiring the routes
+// REQUIRING THE ROUTES
 const homeRoute = require('./routes/route-home'),
       artists = require('./routes/route-artist'),
       fans = require('./routes/routes-fan');

@@ -105,6 +105,11 @@ artistData.forEach((artistSeed) => {
 });
 }
 
+// GET RANDOM ARTIST
+function getRandomArtist() {
+    return artistData[Math.floor(Math.random() * artistData.length)];
+}
+
 function seedFans() {
     // Remove all fans
     Fan.remove({}, (err) => {
@@ -122,20 +127,10 @@ function seedFans() {
                 console.log(err);
             } else {
                 console.log('New fan added.');
-
-                // Need to somehow push an already-existing artist here instead...
-                SavedArtist.create({
-                    name: 'Test Saved Artist',
-                    img: 'I am img source.'
-                }, (err, savedArtist) => {
-                    if(err) {
-                        console.log(err);
-                    } else {
-                        fan.savedArtists.push(savedArtist);
-                        fan.save();
-                        console.log('Created new saved artist!');
-                    }
-                });
+                var randomArtist = getRandomArtist();
+                fan.savedArtists.push(randomArtist);
+                fan.save();
+                console.log('Saved new artist!');
             }
         });
     });

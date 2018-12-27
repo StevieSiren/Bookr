@@ -5,7 +5,7 @@ const fanSchema = new mongoose.Schema({
     savedArtists: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'SavedArtist'
+            ref: 'Artist'
             // This needs to reference the Artist instead
         }
     ]
