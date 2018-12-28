@@ -2,13 +2,18 @@ const mongoose = require('mongoose');
 
 const fanSchema = new mongoose.Schema({
     name: String,
-    savedArtists: [
+    savedArtistsTest: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Artist'
-            // This needs to reference the Artist instead
+            name: String
         }
     ]
+    // savedArtists: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: 'Artist'
+    //         // This needs to reference the Artist instead
+    //     }
+    // ]
 });
 
 

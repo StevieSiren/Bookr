@@ -145,7 +145,7 @@ function seedDB() {
     seedShows();
 
     // Seed Fans
-    seedFans();
+    // seedFans();
  
 };
 

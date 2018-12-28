@@ -2,18 +2,140 @@
 
 <!-- Getting artist.img and artist.name -->
 
+
 <main id="profile-artist--main">
-    <div class="profile-artist--top" style="background: url('<%= artist.img %>')">
+    <div class="profile-artist--side">
+        <h2>BOOKR</h2>
+    </div>
+    <div class="profile-artist--top" style="background: url('<%= artist.img %>'); background-size: cover; background-repeat: no-repeat;">
         <div class="profile-artist--top_content">
+            <h4 style="color: #fefefe;">ARTIST</h4>
             <h1><%= artist.name %></h1>
-            <p><%= artist.description %></p>
-            <button class="btn-round--light" id="profile-artist--savebtn" onclick="saveArtist('<%= artist._id %>')"><i class="fas fa-heartbeat"></i> Save</button>
-        <div>
+            <!-- <p><%= artist.description %></p> -->
+            <div class="profile-artist--top_buttons">
+                <button class="btn-round--light" id="profile-artist--savebtn"><i class="fas fa-heartbeat"></i> Save</button>
+            </div>
+            <div class="profile-artist--top_categories">
+                <a href="#" class="btn-category">Acoustic</a>
+                <a href="#" class="btn-category">Ambient</a>
+                <a href="#" class="btn-category">Folk</a>
+                <a href="#" class="btn-category">Singer-Songwriter</a>
+            </div>
+        </div>
+        <div class="profile-artist--top_book">
+            <button class="btn btn-primary btn-special" id="profile-artist--bookbtn"><i class="fas fa-heartbeat"></i> Bookr Me</button>
+        </div>
+        <div class="profile-artist--top_tabs">
+            <ul>
+                <li class="profile-artist--top_tabsactive profile-artist--content_tab" onclick="openContent('profile-artist--content_bio', this)" id="content-default--open"><a href="#">Biography</a></li>
+                <li class="profile-artist--content_tab" onclick="openContent('profile-artist--content_songs', this)"><a href="#">Songs</a></li>
+                <li class="profile-artist--content_tab" onclick="openContent('profile-artist--content_bids', this)"><a href="#">Bids</a></li>
+                <li class="profile-artist--content_tab" onclick="openContent('profile-artist--content_concerts', this)"><a href="#">Concerts</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="profile-artist--bottom">
+
+        <div class="profile-artist--bottom_content" id="profile-artist--content_bio">
+            <h1>Biography</h1>
+            <!-- <p><%= artist.description %></p> -->
+        </div>
+
+
+            <table class="profile-artist--bottom_table profile-artist--bottom_content" id="profile-artist--content_songs">
+                    <tr>
+                      <th>#</th>
+                      <th>Photo</th>
+                      <th>Title</th>
+                      <th>Length</th> 
+                      <th>Plays</th>
+                    </tr>
+                    <tr>
+                      <td class="profile-artist--bottom_tableplay"><i class="far fa-play-circle"></i></td>
+                      <td>Photo 1</td>  
+                      <td>Title 1</td>  
+                      <td>Length 1</td>  
+                      <td>Plays 1</td>  
+                    </tr>
+                    <tr>
+                        <td class="profile-artist--bottom_tableplay"><i class="far fa-play-circle"></i></td>
+                        <td>Photo 2</td>
+                        <td>Title 2</td>
+                        <td>Length 2</td>
+                        <td>Plays 2</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-artist--bottom_tableplay"><i class="far fa-play-circle"></i></td>
+                        <td>Photo 3</td>
+                        <td>Title 3</td>
+                        <td>Length 3</td>
+                        <td>Plays 3</td>
+                    </tr>
+                    <tr>
+                        <td class="profile-artist--bottom_tableplay"><i class="far fa-play-circle"></i></td>
+                        <td>Photo 4</td>
+                        <td>Title 4</td>
+                        <td>Length 4</td>
+                        <td>Plays 4</td>
+                    </tr>
+                    
+                  </table>
+
+                <div class="profile-artist--bottom_content" id="profile-artist--content_bids">
+                    <h1>Bids</h1>
+                </div>
+
+                <div class="profile-artist--bottom_content" id="profile-artist--content_concerts">
+                    <h1>Concerts</h1>
+                </div>
     </div>
 </main>
 
+<!-- BOOKING MODAL POPUP -->
+<div class="profile-artist--modal">
+    <div class="modal modal-med position-center">
+        <!-- <img src="<%= artist.img %>" alt="" style="transform: scale(.2);"> -->
+        <i class="fas fa-times" style="float: right; cursor: pointer; color: #555;" id="profile-artist--modal_closebtn"></i>
+        <h1><%= artist.name %></h1>
+        <h3>Your City</h3>
+        <p>Los Angeles, CA</p>
+        <form id="profile-artist--bidform">
+            <input type="number" placeholder="($) Bid amount" name="bidAmount">
+            <input type="submit" value="submit" class="btn btn-primary" id="profile-artist--bidsubmitbtn">
+        </form>
+        
+    </div>
+</div>
 
 
+<script src="/js/profile-artist.js"></script>
+<% if(artist) { %>
+    <script>
+    var artistId = '<%= artist._id %>';    
+    </script>
+<% } %>
+<script>
+    var bidForm = document.querySelector('#profile-artist--bidform');
 
-<script src="./profile-artist.js"></script>
+    // const Artist = require('../models/Artist.js'),
+    //       mongoose = require('mongoose');
+    
+    var testFan = [];
+    // GET DATA FROM THE BID FORM
+    bidForm.onsubmit = function(e) {
+    e.preventDefault();
+    testFan.push(bidForm.bidAmount.value);
+    
+    // Artist.findById(artistId, (err, artist) => {
+    //     if(err) {
+    //         console.log(err);
+    //     } else {
+    //         testFan.push(artist);
+    //     }
+    // });
+    console.log(testFan);
+    this.reset();
+};
+</script>
 <% include partials/footer %>
