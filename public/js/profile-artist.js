@@ -3,13 +3,15 @@
 // const Artist = require('../../models/Artist'),
 //       Fan = require('../../models/Fan');
 
-const saveBtn = document.querySelector('#profile-artist--savebtn'),
-      modalCloseBtn = document.querySelector('#profile-artist--modal_closebtn'),
+// const saveBtn = document.querySelector('#profile-artist--savebtn'),
+const modalCloseBtn = document.querySelectorAll('.profile-artist--modal_closebtn'),
       modalBody = document.querySelector('.profile-artist--modal'),
       bookBtn = document.querySelector('#profile-artist--bookbtn'),
       bidSubmitBtn = document.querySelector('#profile-artist--bidsubmitbtn'),
       contentTabs = document.querySelectorAll('.profile-artist--content_tab');
 
+const bidModal = document.querySelector('#profile-artist--modalbid'),
+      bidModalConfirm = document.querySelector('#profile-artist--modalconfirm');
 
 const saveArtist = () => {
     console.log('I was clicked');
@@ -18,7 +20,7 @@ const saveArtist = () => {
     console.log(testFan);
 };
 
-saveBtn.addEventListener('click', saveArtist);
+// saveBtn.addEventListener('click', saveArtist);
 
 
 // TOGGLE ACTIVE CLASS OF THE TABS
@@ -57,17 +59,23 @@ const openContent = (contentSection, element) => {
 bookBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modalBody.style.display = 'block';
+    bidModalConfirm.style.display = 'none';
 });
 
-modalCloseBtn.addEventListener('click', () => {
-    modalBody.style.display = 'none';
+modalCloseBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        console.log('I was clicked');
+        modalBody.style.display = 'none';
+    });
 });
+
 
 bidSubmitBtn.addEventListener('click', () => {
     if(bidForm.bidAmount <= 0) {
         alert('Please enter a value!');
     } else {
-        modalBody.style.display = 'none';
+        bidModal.style.display = 'none';
+        bidModalConfirm.style.display = 'block';
     }
 });
 
