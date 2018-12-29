@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
 const Artist = require('./models/Artist'),
-      Shows = require('./models/Shows'),
+      Shows = require('./models/Shows');
     //   Fan = require('./models/Fan'),
-      SavedArtist = require('./models/SavedArtist');
 
 
 // Seed the database to create some fake data for testing

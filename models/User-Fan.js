@@ -7,14 +7,19 @@ const userFanSchema = new mongoose.Schema({
     avatar: String,
     firstName: String,
     lastName: String,
-    email: String
-    // savedArtists: [
-    //     {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: 'Artist'
-    //         // This needs to reference the Artist instead
-    //     }
-    // ]
+    email: String,
+    savedArtists: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Artist'
+            // This needs to reference the Artist instead
+        }
+    ],
+    savedShows: [
+        {
+            name: String
+        }
+    ]
 });
 
 userFanSchema.plugin(passportLocalMongoose);

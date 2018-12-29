@@ -67,7 +67,7 @@
         
         
         <div id="fandash-shows--content" class="fan-dashboard--content">
-            Shows
+            <%= currentUser.savedShows[0].name %>
         </div>
         <div id="fandash-feed--content" class="fan-dashboard--content">Feed</div>
         <div id="fandash-discover--content" class="fan-dashboard--content">Discover</div>
@@ -81,4 +81,5 @@
 
 
 <script src="/js/dashboard-fan.js"></script>
+
 <% include partials/footer %>
