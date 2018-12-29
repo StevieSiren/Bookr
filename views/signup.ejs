@@ -24,11 +24,14 @@
 
                         <form action="/signup" method="POST">
                             <input type="text" name="username" placeholder="Username">
+                            <input type="text" name="firstName" placeholder="First Name">
+                            <input type="text" name="lastName" placeholder="Last Name">
+                            <input type="email" name="email" placeholder="you@example.com">
                             <input type="password" name="password" placeholder="Password">
                             <button>Submit</button>
                         </form>
             
-                        <p>Already have an account? <span>Sign In.</span></p>
+                        <p>Already have an account? <span><a href="/login">Sign In.</a></span></p>
             
                         <!-- <button class="btn btn-primary" id="signup-btn">Sign Up</button> -->
                     </div>

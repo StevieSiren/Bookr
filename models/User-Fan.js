@@ -3,7 +3,11 @@ const mongoose = require('mongoose'),
 
 const userFanSchema = new mongoose.Schema({
     username: String,
-    password: String
+    password: String,
+    avatar: String,
+    firstName: String,
+    lastName: String,
+    email: String
     // savedArtists: [
     //     {
     //         type: mongoose.Schema.Types.ObjectId,

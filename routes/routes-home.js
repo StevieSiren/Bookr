@@ -23,17 +23,18 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
-    req.body.username
-    req.body.password
     Fan.register(new Fan({
-        username: req.body.username
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email
     }), req.body.password, (err, user) => {
         if(err) {
             console.log(err);
             return res.render('signup');
         }
         passport.authenticate('local')(req, res, function() {
-            res.redirect('/discover');
+            res.redirect('/home');
         });
     });
 });
@@ -43,7 +44,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/discover',
+    successRedirect: '/home',
     failureRedirect: '/login'
 }), (req, res) => {
     res.send('you hit the post route for login!');
@@ -57,21 +58,46 @@ const isLoggedIn = (req, res, next) => {
     res.redirect('/login');
 }
 
-// Middleware to find the user information with DB query
-const getUserData = () => {
-    Fan.fin
-}
 
-router.get('/discover', isLoggedIn, (req, res) => {
+router.get('/home', isLoggedIn, (req, res) => {
     Artist.find({}, (err, allArtists) => {
         if(err) {
             console.log('There was an error getting all the artists.');
         } else {
             // res.sendFile(path.join(__dirname + '/js/profile-artist.js'));
-            res.render('discover-main', {artists: allArtists, currentUser: req.user});
+            res.render('dashboard-fan', {artists: allArtists, currentUser: req.user});
         }
     });
 });
+
+
+router.get('/users/:id', (req, res) => {
+    Fan.findById(req.params.id, (err, foundUser) => {
+        if(err) {
+            console.log('There was an error finding this user!');
+            res.redirect('/home');
+        } else {
+            res.render('profile-public', {user: foundUser});
+        }
+    });
+});
+
+
+
+// router.get('/discover', isLoggedIn, (req, res) => {
+//     Artist.find({}, (err, allArtists) => {
+//         if(err) {
+//             console.log('There was an error getting all the artists.');
+//         } else {
+//             // res.sendFile(path.join(__dirname + '/js/profile-artist.js'));
+//             res.render('discover-main', {artists: allArtists, currentUser: req.user});
+//         }
+//     });
+// });
+
+
+
+
 
 
 router.get('/logout', (req, res) => {

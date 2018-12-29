@@ -5,7 +5,7 @@
     <div class="listener-dash--left">
         <div class="listener-dash--left_user">
             <img src="/img/profile1.jpg" alt="Profile Picture" class="profile-img">
-            <h5>Stephen Thomas</h5>
+            <h5><a href="/users/<%= currentUser.id %>"><%= currentUser.firstName %> <%= currentUser.lastName %></a></h5>
         </div>
         <div class="listener-dash--left_options">
             <ul>
@@ -67,9 +67,7 @@
         
         
         <div id="fandash-shows--content" class="fan-dashboard--content">
-            <% shows.forEach((show) => { %>
-                <a><%= show.artist %></a>
-            <% }); %>
+            Shows
         </div>
         <div id="fandash-feed--content" class="fan-dashboard--content">Feed</div>
         <div id="fandash-discover--content" class="fan-dashboard--content">Discover</div>
