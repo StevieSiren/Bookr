@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Artist = require('./models/Artist'),
       Shows = require('./models/Shows'),
-      Fan = require('./models/Fan'),
+    //   Fan = require('./models/Fan'),
       SavedArtist = require('./models/SavedArtist');
 
 
