@@ -92,6 +92,25 @@
     text-decoration: none;
 }
 
+.btn-link {
+    text-decoration: none;
+    padding: 15px 25px;
+    margin-top: 15px;
+    background-color: #7685E9;
+    color: #eeeef1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all .2s ease;
+    position: relative;
+    border-radius: 5px;
+}
+
+.btn-link:hover {
+    background-color: rgb(83, 97, 185);
+    bottom: 2px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.20);
+}
+
 
 .btn-special::before {
     content: '';

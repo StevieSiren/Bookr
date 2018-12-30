@@ -1,3 +1,8 @@
+
+/* ===================================
+==== POSITIONING =================
+====================================== */
+
 .position-center {
     position: absolute;
     top: 50%;
@@ -10,6 +15,11 @@
     top: 38%;
     left: 50%;
     transform: translate(-50%, -38%);
+}
+
+.container {
+    margin: 0 auto;
+    width: 60%;
 }
 
 
@@ -61,3 +71,7 @@
 .modalbg-toggle {
     display: block;
 }
+
+
+
+

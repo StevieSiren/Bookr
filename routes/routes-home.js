@@ -136,5 +136,9 @@ router.get('/logout', (req, res) => {
 //     });
 // });
 
+router.get('/about', (req, res) => {
+    res.render('static/about');
+});
+
 
 module.exports = router;
