@@ -6,6 +6,7 @@
 <main id="profile-artist--main">
     <div class="profile-artist--side">
         <h2>BOOKR</h2>
+        <a href="/home">Back to profile</a>
     </div>
     <div class="profile-artist--top" style="background: url('<%= artist.img %>'); background-size: cover; background-repeat: no-repeat;">
         <div class="profile-artist--top_content">
@@ -96,21 +97,22 @@
 
 <!-- BOOKING MODAL POPUP -->
 <div class="profile-artist--modal">
-    <div class="modal modal-med position-center" id="profile-artist--modalbid">
-        <!-- <img src="<%= artist.img %>" alt="" style="transform: scale(.2);"> -->
-        <i class="fas fa-times profile-artist--modal_closebtn" style="float: right; cursor: pointer; color: #555;"></i>
-        <h1><%= artist.name %></h1>
-        <h3>Your City</h3>
-        <p>Los Angeles, CA</p>
-        <form id="profile-artist--bidform" action="/artists/<%= artist._id %>" method="POST">
+    <div class="modal modal-bids position-center" id="profile-artist--modalbid">
+        <div class="profile-artist--bidmodal_img">
+            <i class="fas fa-times profile-artist--modal_closebtn" style="color: #fff;"></i>
+        </div>
+        <div class="profile-artist--bidmodal_text">
+            <h1><%= artist.name %></h1>
+            <p>Enter a bid for <%= artist.name %> to come to your city.</p>
+        </div>
+        <form class="profile-artist--bidmodal_form" id="profile-artist--bidform" action="/artists/<%= artist._id %>" method="POST">
+            <input type="text" value="<%= artist.name %>" name="artistName" readonly>
             <input type="number" placeholder="($) Bid amount" name="bidAmount">
+            <select name="location">
+                <option value="Los Angeles">Los Angeles</option>
+            </select>
             <input type="submit" value="submit" class="btn btn-primary" id="profile-artist--bidsubmitbtn">
-        </form>
-        
-    </div>
-    <div class="modal position-center" id="profile-artist--modalconfirm">
-        <i class="fas fa-times profile-artist--modal_closebtn" style="float: right; cursor: pointer; color: #555;"></i>
-        <p>confirming</p>
+        </form> 
     </div>
 </div>
 

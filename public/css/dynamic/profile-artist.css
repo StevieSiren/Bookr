@@ -56,11 +56,11 @@
 }
 
 .profile-artist--top_tabs ul li:hover a {
-    color: #d46f27;
+    color: #7685E9;
 }
 
 .profile-artist--top_tabsactive a {
-    color: #d46f27 !important;
+    color: #7685E9 !important;
 }
 
 .profile-artist--top_tabsactive a::after {
@@ -71,7 +71,7 @@
     transform: translateX(-50%);
     width: 50%;
     height: 2px;
-    background-color: #d46f27;
+    background-color: #7685E9;
 }
 
 
@@ -87,7 +87,8 @@
 
 .profile-artist--top_content h1 {
     color: rgb(236, 236, 236);
-    font-size: 4rem;
+    font-size: 5.5rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
 
 .profile-artist--top_content p {
@@ -178,6 +179,52 @@
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-#profile-artist-modalconfirm {
-    display: none;
+.modal-bids {
+    display: grid;
+    grid-template-rows: 30% 30% 40%;
+}
+
+.profile-artist--bidmodal_img {
+    grid-row: 1 / 2;
+    background: url('/img/modalbg1.png');
+    background-size: cover;
+    overflow: hidden;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.profile-artist--bidmodal_text {
+    grid-row: 2 / 3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-artist--modal_closebtn {
+    float: right; 
+    cursor: pointer; 
+    color: #fff;
+    padding: 10px;
+}
+
+.profile-artist--bidmodal_text > * {
+    padding: 5px 0;
+}
+
+.profile-artist--bidmodal_form {
+    grid-row: 3 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile-artist--bidmodal_form input:not(:last-child),
+.profile-artist--bidmodal_form select {
+    width: 65%;
+    border: 1px solid rgba(238, 238, 238);
+    background-color: transparent;
+    padding: 5px 0;
 }

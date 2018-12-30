@@ -10,8 +10,7 @@ const modalCloseBtn = document.querySelectorAll('.profile-artist--modal_closebtn
       bidSubmitBtn = document.querySelector('#profile-artist--bidsubmitbtn'),
       contentTabs = document.querySelectorAll('.profile-artist--content_tab');
 
-const bidModal = document.querySelector('#profile-artist--modalbid'),
-      bidModalConfirm = document.querySelector('#profile-artist--modalconfirm');
+const bidModal = document.querySelector('#profile-artist--modalbid');
 
 const saveArtist = () => {
     console.log('I was clicked');
@@ -59,12 +58,10 @@ const openContent = (contentSection, element) => {
 bookBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modalBody.style.display = 'block';
-    bidModalConfirm.style.display = 'none';
 });
 
 modalCloseBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-        console.log('I was clicked');
         modalBody.style.display = 'none';
     });
 });

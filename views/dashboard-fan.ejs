@@ -10,7 +10,7 @@
         <div class="listener-dash--left_options">
             <ul>
                 <li class="listener-dash--active" onclick="openContent('fandash-artists--content', this)" id="fan-dashboard--defaultopen"><i class="fas fa-play"></i> My Artists</li>
-                <li onclick="openContent('fandash-shows--content', this)"><i class="fas fa-music"></i> My Shows</li>
+                <li onclick="openContent('fandash-shows--content', this)"><i class="fas fa-music"></i> My Bids</li>
                 <li onclick="openContent('fandash-feed--content', this)"><i class="fas fa-align-left"></i> Feed</li>
                 <li onclick="openContent('fandash-discover--content', this)"><i class="fas fa-search"></i> Discover</li>
                 <li onclick="openContent('fandash-friends--content', this)"><i class="fas fa-user-friends"></i> Friends</li>
@@ -67,7 +67,10 @@
         
         
         <div id="fandash-shows--content" class="fan-dashboard--content">
-            Shows
+            <% bids.forEach((bid) => { %>
+                <h3><%= bid.artistName %></h3>
+                <h3><%= bid.location %></h3>
+            <% }) %>
         </div>
         <div id="fandash-feed--content" class="fan-dashboard--content">Feed</div>
         <div id="fandash-discover--content" class="fan-dashboard--content">Discover</div>

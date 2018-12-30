@@ -31,7 +31,14 @@ router.get('/:id', (req, res) => {
 // COLLECT INFORMATION ABOUT THE BID AND STORE IT TO THE USER MODEL
 
 router.post('/:id', (req, res) => {
-    Bid.create({amount: req.body.bidAmount}, (err, bid) => {
+    var id = req.params.id;
+    Bid.create({
+        amount: req.body.bidAmount, 
+        location: req.body.location,
+        artistName: req.body.artistName,
+        artistID: id,
+        userID: req.user._id
+    }, (err, bid) => {
         if(err) {
             console.log(err);
             return res.redirect('/:id');
@@ -44,7 +51,7 @@ router.post('/:id', (req, res) => {
                 foundUser.save();
             }
         });
-        var id = req.params.id;
+        // var id = req.params.id;
         Artist.findById(id).exec((err, foundArtist) => {
             if(err) {
                 console.log(err);

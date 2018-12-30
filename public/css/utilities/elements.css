@@ -120,27 +120,22 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #d46f27;
+    background-color: #7685E9;
     border-radius: 100px;
     opacity: 0;
-    animation: btnSpecial 1s ease-in-out 3s 5 forwards;
+    animation: btnSpecial 1s 3s 5 forwards;
 }
 
 @keyframes btnSpecial {
     0% {
         opacity: 0;
     }
-    25% {
-        opacity: 0.5;
-        transform: scale(1.05);
-    }
     50% {
         opacity: 1;
-        transform: scale(1.1);
     }
     100% {
         opacity: 0;
-        transform: scale(1.3);
+        transform: scale(1.2);
     }
 }
 
@@ -278,16 +273,16 @@
 
 
 /* ===================================
-==== CARDS =================
+==== MODALS =================
 ====================================== */
 
 .modal {
-    padding: 20px;
+    /* padding: 20px; */
     background-color: #fff;
     border-radius: 5px;
     height: 40%;
     width: 30%;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
     animation: modalSlideTop .5s ease-out forwards;
 }
 

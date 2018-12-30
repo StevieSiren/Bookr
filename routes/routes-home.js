@@ -7,7 +7,8 @@ const express = require('express'),
       passportLocalMongoose = require('passport-local-mongoose');
 
 const Artist = require('../models/Artist'),
-      Fan = require('../models/User-Fan');
+      Fan = require('../models/User-Fan'),
+      Bid = require('../models/Bid');
 
 // HOME PAGE
 router.get('/', (req, res) => {
@@ -77,8 +78,17 @@ router.get('/home', isLoggedIn, (req, res) => {
         if(err) {
             console.log('There was an error getting all the artists.');
         } else {
-            
-            res.render('dashboard-fan', {artists: allArtists, currentUser: req.user});
+            Bid.find({}).where('userID').equals(req.user._id).exec((err, allBids) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    res.render('dashboard-fan', {
+                        artists: allArtists, 
+                        currentUser: req.user,
+                        bids: allBids
+                    });
+                }
+            })
         }
     });
 });
