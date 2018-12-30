@@ -70,14 +70,6 @@ modalCloseBtn.forEach((btn) => {
 });
 
 
-bidSubmitBtn.addEventListener('click', () => {
-    if(bidForm.bidAmount <= 0) {
-        alert('Please enter a value!');
-    } else {
-        bidModal.style.display = 'none';
-        bidModalConfirm.style.display = 'block';
-    }
-});
 
 (function() {
     document.getElementById('content-default--open').click();

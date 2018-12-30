@@ -19,7 +19,11 @@ const userFanSchema = new mongoose.Schema({
         {
             name: String
         }
-    ]
+    ],
+    bids: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bid'
+    }]
 });
 
 userFanSchema.plugin(passportLocalMongoose);
