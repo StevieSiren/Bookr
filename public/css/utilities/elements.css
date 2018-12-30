@@ -12,13 +12,13 @@
 
 .btn-primary {
     border: none;
-    background-color: #d46f27;
+    background-color: #7685E9;
     color: rgb(236, 236, 236);
     position: relative;
 }
 
 .btn-primary:hover {
-    background-color: #b85712;
+    background-color: rgb(83, 95, 172);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -235,7 +235,42 @@
 }
 
 
+/* LANDING PAGE CARD 1 */
 
+.card-landingpage {
+    padding: 15px;
+    height: 42%;
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.40);
+    display: grid;
+    grid-template-rows: 60% 10% 30%;
+    overflow: hidden;
+}
+
+.card-landingpage--content {
+    grid-row: 1 / 2;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-landingpage--content h3 {
+    color: #7685E9;
+    font-weight: 600;
+}
+
+.card-landingpage--content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+
+.card-landingpage--img {
+    grid-row: 3 / -1;
+}
 
 
 

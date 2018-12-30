@@ -9,6 +9,8 @@ nav {
     min-height: 8vh;
     background-color: transparent;
     position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -29,7 +31,7 @@ nav {
     color: rgb(236, 236, 236);
     text-decoration: none;
     letter-spacing: 2px;
-    font-weight: 500;
+    font-weight: 700;
     font-size: .75rem;
     text-transform: uppercase;
     transition: all .3s ease;
@@ -60,15 +62,15 @@ nav {
 .navlink-btn {
     padding: 10px 20px;
     background: transparent;
-    border: 1px solid #d46f27;
-    color: #d46f27;
+    border: 1px solid #7685E9;
+    color: #7685E9;
     border-radius: 100px;
     transition: all 0.3s ease;
 }
 
 .navlink-btn:hover {
     color: rgb(236, 236, 236);
-    background-color: #d46f27af;
+    background-color: #7685E9af;
 }
 
 /* Nav Menu Media Queries */

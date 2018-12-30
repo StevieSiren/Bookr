@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700');
+/* @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700'); */
+@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700'); 
 
 @import url('static/navbar.css');
 @import url('static/landing.css');
 @import url('static/signup.css');
 @import url('static/about.css');
+@import url('static/login.css');
 
 
 
@@ -19,5 +21,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Work Sans', sans-serif;
+    /* font-family: 'Work Sans', sans-serif; */
+    font-family: 'Muli', sans-serif;
 }

@@ -4,8 +4,8 @@ input:focus {
 }
 
 .signup {
-    height: 92vh;
-    background: url('../../img/landingbg.png');
+    height: 100vh;
+    background: url('../../img/loginbg.png');
     background-size: cover;
     display: flex;
 }
@@ -20,7 +20,7 @@ input:focus {
 
 .signup-center {
     flex: 6;
-    background-color: #2a2e31d3;
+    /* background-color: #14194bab; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,6 +50,10 @@ input:focus {
     width: 100%;
     margin: 15px 0;
     transition: all 0.3s;
+}
+
+.signup-area input[placeholder] {
+    color: #fff;
 }
 
 .signup-area input:focus {

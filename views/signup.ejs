@@ -1,4 +1,4 @@
-<% include partials/header %>
+<% include partials/header-authenticated %>
 
 
 
@@ -11,7 +11,7 @@
         <div class="signup-area">
 
                 <div class="signup-logo">
-                        <h4>Bookr</h4>
+                        <img src="img/logotext.png" alt="">
                     </div>
             
                     <div class="signup-form">
@@ -28,7 +28,7 @@
                             <input type="text" name="lastName" placeholder="Last Name">
                             <input type="email" name="email" placeholder="you@example.com">
                             <input type="password" name="password" placeholder="Password">
-                            <button>Submit</button>
+                            <button class="btn btn-primary">Submit</button>
                         </form>
             
                         <p>Already have an account? <span><a href="/login">Sign In.</a></span></p>
