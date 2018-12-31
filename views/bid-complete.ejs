@@ -1,10 +1,42 @@
-<% include partials/header %>
+<main id="bid-success--main">
 
+    <% include partials/header %>
 
-<h1>You successfully completed your bid for $<%= bid.amount %>.00!</h1>
-<p>Hopefully you'll get to see <%= artist.name %> in <%= bid.location %> soon.</p>
-<a href="/home">Go back to your profile</a>
-<a href="/artists/<%= artist._id %>">Back to <%= artist.name %></a>
+<!-- <div class="container"> -->
+    <div class="bid-success--content position-center">
+        <div class="bid-success--content_header">
+            <img src="/img/bidsuccess.png" alt="">
+            <h2>Success!</h2>
+            <p>You've helped get great music one step closer to your city. 
+                <br>
+                Here are your bid details:
+            </p>
+            <p>Wait! I'd like to <a href="#">Edit</a> my bid or <a href="#">Delete</a> it.</p>
+        </div>
+        <div class="bid-success--content_details">
+            <div>
+                <h3>Artist</h3>
+                <h1><%= artist.name %></h1>
+            </div>
+            <div>
+                <h3>Bid Amount</h3>
+                <h1><span>$</span><%= bid.amount %></h1>
+            </div>
+            <div>
+                <h3>City</h3>
+                <h1><%= bid.location %></h1>
+            </div>
+        </div>
+
+        <div>
+            <a href="/home" class="btn btn-primary">My Profile</a>
+            <a href="/artists/<%= artist._id %>" class="btn btn-primary--alt">Back to Artist</a>
+        </div>
+    </div>
+<!-- </div> -->
+
+</main>
+
 
 
 

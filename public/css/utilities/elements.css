@@ -12,29 +12,32 @@
 
 .btn-primary {
     border: none;
-    background-color: #7685E9;
+    background-color: #5088f5;
     color: rgb(236, 236, 236);
     position: relative;
+    text-decoration: none;
 }
+
+
 
 .btn-primary:hover {
     background-color: rgb(83, 95, 172);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
-.primary-btn--alt {
+.btn-primary--alt {
     padding: 12px 35px;
-    border: 1px solid #d46f27;
-    margin: 80px 0;
-    color: #d46f27;
+    border: 1px solid #5088f5;
+    color: #5088f5;
     background: transparent;
     cursor: pointer;
     border-radius: 100px;
     transition: all .3s ease;
     font-size: 1rem;
+    text-decoration: none;
 }
 
-.primary-btn--alt:hover {
+.btn-primary--alt:hover {
     border: 1px solid rgb(236, 236, 236);
     color: rgb(236, 236, 236);
 }

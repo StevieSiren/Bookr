@@ -1,0 +1,66 @@
+#bid-success-main {
+    max-height: 100vh;
+    position: relative;
+}
+
+.bid-success--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 75%;
+}
+
+.bid-success--content img {
+    width: 50%;
+    height: auto;
+}
+
+.bid-success--content h2 {
+    color: #444;
+    text-align: center;
+}
+
+.bid-success--content p {
+    color: #666;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.bid-success--content_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bid-success--content_details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bid-success--content_details div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #5088f5;
+    border-radius: 5px;
+    margin: 0 15px;
+}
+
+.bid-success--content_details div h3 {
+    color: #555;
+    font-size: 1rem;
+}
+
+.bid-success--content_details div h1 {
+    font-size: 1.7rem;
+    color: #5088f5;
+}
+
+.bid-success--content div h1 span {
+    font-size: .8rem;
+}
