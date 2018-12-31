@@ -232,11 +232,12 @@
 
 /* LANDING PAGE CARD 1 */
 
-.card-landingpage {
+/* Info 1 is designed to work on a grid */
+.card-info1 {
     padding: 15px;
-    height: 42%;
-    width: 30%;
-    background-color: rgba(255, 255, 255, 0.95);
+    height: 30%;
+    width: 80%;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.40);
     display: grid;
@@ -244,7 +245,7 @@
     overflow: hidden;
 }
 
-.card-landingpage--content {
+.card-info1--content {
     grid-row: 1 / 2;
     padding: 10px 0;
     display: flex;
@@ -252,18 +253,18 @@
     justify-content: space-around;
 }
 
-.card-landingpage--content h3 {
+.card-info1--content h3 {
     color: #7685E9;
     font-weight: 600;
 }
 
-.card-landingpage--content p {
+.card-info1--content p {
     color: #555;
     line-height: 1.6;
 }
 
 
-.card-landingpage--img {
+.card-info1--img {
     grid-row: 3 / -1;
 }
 

@@ -9,7 +9,11 @@ var artistSchema = new mongoose.Schema({
     name: String,
     img: String,
     fans: Number,
-    description: String
+    description: String,
+    bids: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Bid'
+    }]
 });
 
 module.exports = mongoose.model('Artist', artistSchema);

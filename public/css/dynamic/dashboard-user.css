@@ -25,6 +25,17 @@
     color: rgba(236, 236, 236, 0.726);
 }
 
+.listener-dash--left_user h5 a:link,
+.listener-dash--left_user h5 a:visited {
+    text-decoration: none;
+    color: #fff;
+    transition: all .1s ease;
+}
+
+.listener-dash--left_user h5 a:hover {
+    color: #7685E9;
+}
+
 .listener-dash--left_options {
     flex: 7;
     display: flex;
@@ -128,3 +139,8 @@
 /* .listener-dash--right_content > * {
     margin-right: 50px;
 } */
+
+#fandash-shows--content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}

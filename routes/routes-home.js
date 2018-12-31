@@ -40,7 +40,15 @@ router.post('/signup', (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
+// Check if the user is already logged in
+const ifLoggedIn = (req, res, next) => {
+    if(req.isAuthenticated()) {
+        return res.redirect('/home');
+    }
+    next();
+}
+
+router.get('/login', ifLoggedIn,(req, res) => {
     res.render('login');
 });
 
@@ -58,6 +66,7 @@ const isLoggedIn = (req, res, next) => {
     }
     res.redirect('/login');
 }
+
 
 
 // router.get('/home', isLoggedIn, (req, res) => {

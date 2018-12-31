@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
         if(err) {
             console.log('There was an error getting all the artists.');
         } else {
-            res.sendFile(path.join(__dirname + '/js/profile-artist.js'));
             res.render('discover-main', {artists: allArtists});
         }
     });

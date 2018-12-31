@@ -16,9 +16,9 @@
             <div class="profile-artist--top_buttons">
                 <!-- <button class="btn-round--light" id="profile-artist--savebtn"><i class="fas fa-heartbeat"></i> Save</button> -->
                 <button class="btn btn-primary btn-special" id="profile-artist--bookbtn"><i class="fas fa-heartbeat"></i> Bookr Me</button>
-                <form action="/artists/<%= artist._id %>/saved-artist" method="POST" style="display: inline;">
+                <!-- <form action="/artists/<%= artist._id %>/saved-artist" method="POST" style="display: inline;">
                     <input type="submit" class="btn-round--light" name="saveArtist" value="Save">
-                </form>
+                </form> -->
             </div>
             <div class="profile-artist--top_categories">
                 <a href="#" class="btn-category">Acoustic</a>
@@ -43,7 +43,7 @@
     <div class="profile-artist--bottom">
 
         <div class="profile-artist--bottom_content" id="profile-artist--content_bio">
-            <h1>Biography</h1>
+            <h1><%= artist.description %></h1>
             <!-- <p><%= artist.description %></p> -->
         </div>
 
@@ -88,7 +88,9 @@
                   </table>
 
                 <div class="profile-artist--bottom_content" id="profile-artist--content_bids">
-                    <h1>Bids</h1>
+                    <% bids.forEach((bid) => { %>
+                        <h3>A bid was placed in <br> <%= bid.location %> for $<%= bid.amount %>.00 by <%= bid.username %></h3>
+                    <% }); %>
                 </div>
 
                 <div class="profile-artist--bottom_content" id="profile-artist--content_concerts">
@@ -108,8 +110,9 @@
             <p>Enter a bid for <%= artist.name %> to come to your city.</p>
         </div>
         <form class="profile-artist--bidmodal_form" id="profile-artist--bidform" action="/artists/<%= artist._id %>/bid" method="POST">
+            <input type="text" value="<%= currentUser.username %>" name="username" readonly>
             <input type="text" value="<%= artist.name %>" name="artistName" readonly>
-            <input type="number" placeholder="($) Bid amount" name="bidAmount">
+            <input type="number" placeholder="($) Bid amount" name="bidAmount" required>
             <select name="location">
                 <option value="Los Angeles">Los Angeles</option>
             </select>

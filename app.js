@@ -80,8 +80,8 @@ app.use('/', homeRoute);
 app.use('/artists', artists);          
 
 
-// // DISCOVER ROUTES
-// app.use('/discover', discover);
+// DISCOVER ROUTES
+app.use('/discover', discover);
 
 
 // FAN ROUTES

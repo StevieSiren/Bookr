@@ -1,6 +1,10 @@
 const express = require('express'),
       router = express.Router(),
-      mongoose = require('mongoose');
+      mongoose = require('mongoose'),
+      passport = require('passport'),
+      bodyParser = require('body-parser'),
+      LocalStrategy = require('passport-local'),
+      passportLocalMongoose = require('passport-local-mongoose');
 
 const Artist = require('../models/Artist'),
       User = require('../models/User-Fan'),
@@ -13,20 +17,41 @@ router.get('/', (req, res) => {
     // res.render('profile-artist');
 });
 
-router.get('/:id', (req, res) => {
+
+
+// Check to see if someone accessing this route has an account
+const isUser = (req, res, next) => {
+    if(req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/signup');
+}
+
+router.get('/:id', isUser,(req, res) => {
     // Find recipe with the provided ID
     var id = req.params.id;
     Artist.findById(id).exec((err, foundArtist) => {
         if(err) {
             console.log(err);
         } else {
-            res.render('profile-artist', {
-                artist: foundArtist,
-                currentUser: req.user
+            Bid.find({}).where('artistID').equals(id).exec((err, allBids) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    res.render('profile-artist', {
+                        artist: foundArtist,
+                        currentUser: req.user,
+                        bids: allBids
+                    });
+                }
             });
         }
     });
 });
+
+
+
+
 
 // COLLECT INFORMATION ABOUT THE BID AND STORE IT TO THE USER MODEL
 
@@ -37,7 +62,8 @@ router.post('/:id/bid', (req, res) => {
         location: req.body.location,
         artistName: req.body.artistName,
         artistID: id,
-        userID: req.user._id
+        userID: req.user._id,
+        username: req.body.username
     }, (err, bid) => {
         if(err) {
             console.log(err);
@@ -57,6 +83,8 @@ router.post('/:id/bid', (req, res) => {
             if(err) {
                 console.log(err);
             } else {
+                foundArtist.bids.push(bid);
+                foundArtist.save();
                 res.render('bid-complete', {
                     artist: foundArtist,
                     currentUser: req.user,

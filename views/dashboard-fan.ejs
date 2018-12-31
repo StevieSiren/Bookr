@@ -4,8 +4,9 @@
 <main id="listener-dash">
     <div class="listener-dash--left">
         <div class="listener-dash--left_user">
-            <img src="/img/profile1.jpg" alt="Profile Picture" class="profile-img">
-            <h5><a href="/users/<%= currentUser.id %>"><%= currentUser.firstName %> <%= currentUser.lastName %></a></h5>
+            <img src="/img/defaultprofile.png" alt="Profile Picture" class="profile-img">
+            <h5><a href="/users/<%= currentUser.id %>">View Public Profile</a></h5>
+            <p><%= currentUser.email %></p>
         </div>
         <div class="listener-dash--left_options">
             <ul>
@@ -13,11 +14,11 @@
                 <li onclick="openContent('fandash-shows--content', this)"><i class="fas fa-music"></i> My Bids</li>
                 <li onclick="openContent('fandash-feed--content', this)"><i class="fas fa-align-left"></i> Feed</li>
                 <li onclick="openContent('fandash-discover--content', this)"><i class="fas fa-search"></i> Discover</li>
-                <li onclick="openContent('fandash-friends--content', this)"><i class="fas fa-user-friends"></i> Friends</li>
+                <li onclick="openContent('fandash-friends--content', this)"><i class="fas fa-user-friends"></i> Followers</li>
             </ul>
         </div>
         <footer class="listener-dash--left_footer">
-            <a href="#">Help</a> <span>|</span> <a href="/logout">Logout</a>
+            <a href="/">Home</a> <span>|</span> <a href="/logout">Logout</a>
         </footer>
     </div>
 
@@ -68,12 +69,19 @@
         
         <div id="fandash-shows--content" class="fan-dashboard--content">
             <% bids.forEach((bid) => { %>
-                <h3><%= bid.artistName %> <span style="font-weight: 300;">in</span> <%= bid.location %></h3>
+                <div class="card-info1">
+                    <div class="card-info1--content">
+                        <h3><%= bid.artistName %></h3>
+                        <p>You bid $<%= bid.amount %>.00 to see <%= bid.artistName %> in <%= bid.location %>.</p>
+                    </div>
+                    <div style="grid-row: 2 / 3;"></div>
+                    <!-- <figure class="card-info1--img"><img src="/img/iso3.png" alt="" class="grid-img"></figure> -->
+                </div>
             <% }) %>
         </div>
         <div id="fandash-feed--content" class="fan-dashboard--content">Feed</div>
         <div id="fandash-discover--content" class="fan-dashboard--content">Discover</div>
-        <div id="fandash-friends--content" class="fan-dashboard--content">Friends</div>
+        <div id="fandash-friends--content" class="fan-dashboard--content">Followers</div>
 
 
     </div>
