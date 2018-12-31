@@ -88,11 +88,10 @@ router.get('/home', isLoggedIn, (req, res) => {
                         bids: allBids
                     });
                 }
-            })
+            });
         }
     });
-});
-
+});    
 
 
 

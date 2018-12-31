@@ -51,7 +51,8 @@ router.post('/:id', (req, res) => {
                 foundUser.save();
             }
         });
-        // var id = req.params.id;
+       
+        var id = req.params.id;
         Artist.findById(id).exec((err, foundArtist) => {
             if(err) {
                 console.log(err);
@@ -60,8 +61,31 @@ router.post('/:id', (req, res) => {
                     artist: foundArtist,
                     currentUser: req.user
                 });
+                // req.flash('info', 'New bid created!');
             }
         });
+    });
+});
+
+router.post('/:id/saved-artist', (req, res) => {
+    var artistID = req.params.id;
+    Artist.findById(artistID, (err, foundArtist) => {
+        if(err) {
+            console.log(err);
+        } else {
+            User.findById(req.user._id).exec((err, foundUser) => {
+                if(err) {
+                    console.log(err);
+                } else {
+                    foundUser.savedArtists.push(foundArtist);
+                    foundUser.save();
+                    res.render('profile-artist', {
+                        artist: foundArtist,
+                        currentUser: req.user
+                    });
+                }
+            });
+        }
     });
 });
 

@@ -16,7 +16,9 @@
             <div class="profile-artist--top_buttons">
                 <!-- <button class="btn-round--light" id="profile-artist--savebtn"><i class="fas fa-heartbeat"></i> Save</button> -->
                 <button class="btn btn-primary btn-special" id="profile-artist--bookbtn"><i class="fas fa-heartbeat"></i> Bookr Me</button>
-
+                <form action="/artists/<%= artist._id %>/saved-artist" method="POST" style="display: inline;">
+                    <input type="submit" class="btn-round--light" name="saveArtist" value="Save">
+                </form>
             </div>
             <div class="profile-artist--top_categories">
                 <a href="#" class="btn-category">Acoustic</a>

@@ -32,6 +32,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
+// app.use(session());
+// app.use(require('flash')());
+// app.use((req, res) => {
+//     req.flash('info', 'Hello World');
+//     next();
+// })
 // Passport setup for Fan accounts
 passport.use(new LocalStrategy(Fan.authenticate()));
 passport.serializeUser(Fan.serializeUser());

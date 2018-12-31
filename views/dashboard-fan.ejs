@@ -68,8 +68,7 @@
         
         <div id="fandash-shows--content" class="fan-dashboard--content">
             <% bids.forEach((bid) => { %>
-                <h3><%= bid.artistName %></h3>
-                <h3><%= bid.location %></h3>
+                <h3><%= bid.artistName %> <span style="font-weight: 300;">in</span> <%= bid.location %></h3>
             <% }) %>
         </div>
         <div id="fandash-feed--content" class="fan-dashboard--content">Feed</div>
