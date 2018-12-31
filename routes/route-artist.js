@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
 
 // COLLECT INFORMATION ABOUT THE BID AND STORE IT TO THE USER MODEL
 
-router.post('/:id', (req, res) => {
+router.post('/:id/bid', (req, res) => {
     var id = req.params.id;
     Bid.create({
         amount: req.body.bidAmount, 
@@ -57,11 +57,12 @@ router.post('/:id', (req, res) => {
             if(err) {
                 console.log(err);
             } else {
-                res.render('profile-artist', {
+                res.render('bid-complete', {
                     artist: foundArtist,
-                    currentUser: req.user
+                    currentUser: req.user,
+                    bid: bid
                 });
-                // req.flash('info', 'New bid created!');
+                // 6
             }
         });
     });

@@ -107,7 +107,7 @@
             <h1><%= artist.name %></h1>
             <p>Enter a bid for <%= artist.name %> to come to your city.</p>
         </div>
-        <form class="profile-artist--bidmodal_form" id="profile-artist--bidform" action="/artists/<%= artist._id %>" method="POST">
+        <form class="profile-artist--bidmodal_form" id="profile-artist--bidform" action="/artists/<%= artist._id %>/bid" method="POST">
             <input type="text" value="<%= artist.name %>" name="artistName" readonly>
             <input type="number" placeholder="($) Bid amount" name="bidAmount">
             <select name="location">
