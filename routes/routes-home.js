@@ -91,7 +91,7 @@ router.get('/home', isLoggedIn, (req, res) => {
                 if(err) {
                     console.log(err);
                 } else {
-                    res.render('dashboard-fan', {
+                    res.render('./profiles/user-dash', {
                         artists: allArtists, 
                         currentUser: req.user,
                         bids: allBids

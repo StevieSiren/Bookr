@@ -1,0 +1,82 @@
+<% include ../partials/header-authenticated %>
+
+<header id="user-dash--header">
+    <nav class="user-dash--header_nav">
+        <div class="user-dash--header_div1">
+            <img src="/img/profile1.jpg" alt="">
+            <h3><%= currentUser.username %></h3>
+        </div>
+        <div class="user-dash--header_div2">
+            <span><i class="fas fa-search"></i></span>
+            <input type="text" placeholder="Search artists...">
+        </div>
+    </nav>
+</header>
+
+<main id="user-dash--main">
+
+    <section class="user-dash--main_left">
+        <div class="user-dash--main_left1">
+            <ul class="user-dash--main_menu">
+                <li style="text-transform: uppercase; color: #888;">Menu</li>
+                <li class="user-dash--main_menuactive">Bids</li>
+                <li><a href="/discover">Artists</a></li>
+                <li>Feed</li>
+                <li>Edit</li>
+                <li>Logout</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="user-dash--main_center">
+        <div class="user-dash--main_card">
+            <div class="user-dash--main_cardtitle">
+                <h3>My Bids</h3>
+            </div>
+            <div class="user-dash--main_cardcontent">
+                
+                <% bids.forEach((bid) => { %>
+                    <div class="user-dash--card_bid">
+                            <div class="user-dash--card_bidtitle">
+                                <p>Amount</p>
+                                <h2>$<%= bid.amount %></h2>
+                            </div>
+                            <div class="user-dash--card_bidinfo">
+                                <a href="/artists/<%= bid.artistID %>"><%= bid.artistName %></a>
+                                <p><i class="fas fa-map-marker-alt"></i>  <%= bid.location %></p>
+                                <div>
+                                    <img src="/img/profile1.jpg" alt="" class="stacked-img">
+                                    <img src="/img/profile2.jpg" alt="" class="stacked-img">
+                                    <img src="/img/profile3.jpg" alt="" class="stacked-img">
+                                    <img src="/img/profile4.jpg" alt="" class="stacked-img">
+                                    <p>+ 877 more...</p>
+                                </div>
+                            </div>
+                            <div class="user-dash--card_bidoptions">
+                                <button class="user-dash--card_bidbtn">Edit  <i class="far fa-edit"></i></button>
+                                <button class="user-dash--card_bidbtn">Delete  <i class="far fa-trash-alt"></i></button>
+                                <button class="user-dash--card_bidbtn">Share  <i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                <% }); %>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="user-dash--main_right">
+        <div class="user-dash--main_card">
+            <p>This is where some sort of feed information will go
+                to fill out the page.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+
+
+
+
+<% include ../partials/footer %>
