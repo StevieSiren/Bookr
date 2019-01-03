@@ -1,41 +1,39 @@
 <% include partials/header %>
 
+<main id="discover-main">
+        <div class="container">
 
-
-
-<div class="listener-dash--right_content fan-dashboard--content" id="fandash-artists--content">
-        <% artists.forEach((artist) => { %>
-
-            <div class="card card-shows">
-                <figure class="card-shows--img"><img src="<%= artist.img %>" alt="" class="grid-img"></figure>
-                <div class="card-shows--content">
-                    <div>
-                        <h3><a href="/artists/<%= artist._id %>"><%= artist.name %></a></h3>
-                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span>
-                            | <span class="card-shows--content_fans"><%= artist.fans %> Fans</span></p>
+                <div class="listener-dash--right_content fan-dashboard--content" id="fandash-artists--content">
+                        <% artists.forEach((artist) => { %>
+                
+                            <div class="card card-shows">
+                                <figure class="card-shows--img"><img src="<%= artist.img %>" alt="" class="grid-img"></figure>
+                                <div class="card-shows--content">
+                                    <div>
+                                        <h3><a href="/artists/<%= artist._id %>"><%= artist.name %></a></h3>
+                                        <p><span class="card-shows--content_location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</span>
+                                            | <span class="card-shows--content_fans"><%= artist.fans %> Fans</span></p>
+                                    </div>
+                            
+                                    <p class="card-artists--description"><%= artist.description %></p>
+                                </div>
+                                <div class="card-shows--friends">
+                                    <img src="/img/profile2.jpg" alt="" class="stacked-img">
+                                    <img src="/img/profile4.jpg" alt="" class="stacked-img">
+                                    <img src="/img/profile1.jpg" alt="" class="stacked-img">
+                                    <img src="/img/profile3.jpg" alt="" class="stacked-img">
+                                    <p>+ <span>25 more</span></p>
+                                </div>
+                            </div>
+                
+                        <% }); %>
+                
                     </div>
-            
-                    <p class="card-artists--description"><%= artist.description %></p>
+                
                 </div>
-                <div class="card-shows--friends">
-                    <img src="/img/profile2.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile4.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile1.jpg" alt="" class="stacked-img">
-                    <img src="/img/profile3.jpg" alt="" class="stacked-img">
-                    <p>+ <span>25 more</span></p>
-                </div>
-            </div>
-
-        <% }); %>
-
-    </div>
+</main>
 
 
 <script src="/js/discover-main.js"></script>
-<script>
-    var randomFanNumber = () => {
-        return Math.floor(Math.random() * 150);
-    }
-</script>
 
 <% include partials/footer %>

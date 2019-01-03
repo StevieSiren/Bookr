@@ -4,7 +4,8 @@ const express = require('express'),
       passport = require('passport'),
       bodyParser = require('body-parser'),
       LocalStrategy = require('passport-local'),
-      passportLocalMongoose = require('passport-local-mongoose');
+      passportLocalMongoose = require('passport-local-mongoose'),
+      methodOverride = require('method-override');
 
 const Artist = require('../models/Artist'),
       Fan = require('../models/User-Fan'),
@@ -68,20 +69,11 @@ const isLoggedIn = (req, res, next) => {
 }
 
 
+// ===============================================================================
+// === USER DASHBOARD ============================================================
+// ===============================================================================
 
-// router.get('/home', isLoggedIn, (req, res) => {
-//     Artist.find({}, (err, allArtists) => {
-//         if(err) {
-//             console.log('There was an error getting all the artists.');
-//         } else {
-//             // res.sendFile(path.join(__dirname + '/js/profile-artist.js'));
-//             res.render('dashboard-fan', {artists: allArtists, currentUser: req.user});
-//         }
-//     });
-// });
-
-
-
+// MAIN USER HOME DASH
 router.get('/home', isLoggedIn, (req, res) => {
     Artist.find({}, (err, allArtists) => {
         if(err) {
@@ -100,7 +92,23 @@ router.get('/home', isLoggedIn, (req, res) => {
             });
         }
     });
-});    
+});
+
+// EDIT BIDS
+// router.put('/home/bid/:id', (req, res) => {
+//     res.
+// });
+
+// DESTROY ROUTE FOR BIDS
+router.delete('/home/bid/:id', isLoggedIn, (req, res) => {
+    Bid.findByIdAndRemove(req.params.id, (err) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.redirect('/home');
+        }
+    });
+});
 
 
 
@@ -115,19 +123,6 @@ router.get('/users/:id', (req, res) => {
         }
     });
 });
-
-
-
-// router.get('/discover', isLoggedIn, (req, res) => {
-//     Artist.find({}, (err, allArtists) => {
-//         if(err) {
-//             console.log('There was an error getting all the artists.');
-//         } else {
-//             // res.sendFile(path.join(__dirname + '/js/profile-artist.js'));
-//             res.render('discover-main', {artists: allArtists, currentUser: req.user});
-//         }
-//     });
-// });
 
 
 
@@ -153,7 +148,7 @@ router.get('/logout', (req, res) => {
 //         }
 //     });
 // });
-
+ 
 router.get('/about', (req, res) => {
     res.render('static/about');
 });

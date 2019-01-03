@@ -62,6 +62,7 @@ router.post('/:id/bid', (req, res) => {
         location: req.body.location,
         artistName: req.body.artistName,
         artistID: id,
+        artistImg: req.body.artistImg,
         userID: req.user._id,
         username: req.body.username
     }, (err, bid) => {

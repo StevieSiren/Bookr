@@ -57,9 +57,10 @@
 /* MAIN SECTION */
 
 #user-dash--main {
-    max-height: 90vh;
+    height: 90vh;
     display: grid;
     grid-template-columns: 20% 50% 30%;
+    /* overflow: hidden; */
 }
 
 
@@ -79,6 +80,16 @@
     align-items: flex-start;
     justify-content: space-around;
     height: 100%;
+}
+
+.user-dash--main_menu li i {
+    padding-right: 10px;
+}
+
+.user-dash--main_menu li a:link,
+.user-dash--main_menu li a:visited {
+    text-decoration: none;
+    color: #3b3a3b;
 }
 
 .user-dash--main_menu li {
@@ -102,7 +113,7 @@
 }
 
 .user-dash--main_left1 {
-    height: 55%;
+    height: 375px;
     border-bottom: 1px solid #eee;
 }
 
@@ -112,11 +123,12 @@
 
 .user-dash--main_center {
     grid-column: 2 / 3;
+    /* height: 100%; */
 }
 
 .user-dash--main_center,
 .user-dash--main_right {
-    background-color: #FDFCFF;
+    background-color: #E8EAED;
 }
 
 
@@ -125,9 +137,10 @@
     width: 100%;
     height: 175px;
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 20% 50% 30%;
     grid-template-rows: 70% 30%;
     border-bottom: 1px solid #eee;
+    animation: fadeIn .5s ease-out forwards;
 }
 
 .user-dash--card_bid .user-dash--card_bidtitle {
@@ -150,7 +163,7 @@
 }
 
 .user-dash--card_bid .user-dash--card_bidinfo {
-    grid-column: 2 / -1;
+    grid-column: 2 / 3;
     grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
@@ -186,8 +199,14 @@
     margin-right: -15px;
 }
 
+.user-dash--card_bidimg {
+    grid-column: 3 / -1;
+    grid-row: 1 / -1;
+    border-radius: 5px;
+}
+
 .user-dash--card_bid .user-dash--card_bidoptions {
-    grid-column: 2 / -1;
+    grid-column: 2 / 3;
     grid-row: 2 / -1;
     display: flex;
     justify-content: flex-start;
@@ -226,12 +245,11 @@
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #eee;
-    width: 92%;
-    min-height: 100%;
+    height: 85vh;
     /* padding: 20px; */
     display: grid;
     grid-template-rows: 15% 85%;
-    overflow-y: hidden;
+    /* overflow-y: scroll; */
 }
 
 .user-dash--main_cardtitle {
@@ -249,12 +267,40 @@
 
 .user-dash--main_cardcontent {
     grid-row: 2 / -1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: hidden;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-rows: auto;
+    overflow-y: scroll;
+    height: 80%;
 }
 
 
+
+/* No content to show styles */
+
+.user-dash--nobids {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.user-dash--nobids_content > * {
+    margin: 10px 0;
+}
+
+.user-dash--nobids_content h2 {
+    font-size: 2rem;
+}
+
+.user-dash--nobids_content {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
 
 
 /* ACTIVE STYLES */
@@ -263,7 +309,7 @@
     color: #FF7952 !important;
     border-top: 1px solid rgba(255, 122, 82, 0.5);
     border-bottom: 1px solid rgba(255, 122, 82, 0.5);
-    background-color: rgba(255, 122, 82, 0.05);
+    background-color: rgba(255, 122, 82, 0.1);
 }
 
 .user-dash--main_menuactive::before {
@@ -274,4 +320,24 @@
     height: 100%;
     width: 3px;
     background-color: #FF7952;
+}
+
+
+
+
+/* TOGGLE CLASSES */
+
+#user-dash--artistcontent {
+    display: 'none';
+}
+
+
+/* PAGE ANIMATIONS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
 }

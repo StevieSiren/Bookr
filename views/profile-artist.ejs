@@ -110,6 +110,7 @@
             <p>Enter a bid for <%= artist.name %> to come to your city.</p>
         </div>
         <form class="profile-artist--bidmodal_form" id="profile-artist--bidform" action="/artists/<%= artist._id %>/bid" method="POST">
+            <input type="" value="<%= artist.img %>" name="artistImg" style="display: none;">
             <input type="text" value="<%= currentUser.username %>" name="username" readonly>
             <input type="text" value="<%= artist.name %>" name="artistName" readonly>
             <input type="number" placeholder="($) Bid amount" name="bidAmount" required>

@@ -19,49 +19,85 @@
         <div class="user-dash--main_left1">
             <ul class="user-dash--main_menu">
                 <li style="text-transform: uppercase; color: #888;">Menu</li>
-                <li class="user-dash--main_menuactive">Bids</li>
-                <li><a href="/discover">Artists</a></li>
-                <li>Feed</li>
-                <li>Edit</li>
-                <li>Logout</li>
+                <li class="user-dash--main_menuactive user-dash--menu_item" onclick="toggleDashContent('user-dash--bidcontent', this)" id="user-dash--defaultactive"><i class="fas fa-ticket-alt"></i> Bids</li>
+                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i> My Artists</li>
+                <!-- <li><i class="fas fa-align-left"></i> Feed</li> -->
+                <li><i class="fas fa-cog"></i> Settings</li>
+                <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </div>
     </section>
 
     <section class="user-dash--main_center">
-        <div class="user-dash--main_card">
+        <div class="user-dash--main_card user-dash--main_content" id="user-dash--bidcontent">
             <div class="user-dash--main_cardtitle">
-                <h3>My Bids</h3>
+                <h3 id="user-dash--main_cardtitle">My Bids</h3>
             </div>
             <div class="user-dash--main_cardcontent">
                 
-                <% bids.forEach((bid) => { %>
-                    <div class="user-dash--card_bid">
-                            <div class="user-dash--card_bidtitle">
-                                <p>Amount</p>
-                                <h2>$<%= bid.amount %></h2>
-                            </div>
-                            <div class="user-dash--card_bidinfo">
-                                <a href="/artists/<%= bid.artistID %>"><%= bid.artistName %></a>
-                                <p><i class="fas fa-map-marker-alt"></i>  <%= bid.location %></p>
-                                <div>
-                                    <img src="/img/profile1.jpg" alt="" class="stacked-img">
-                                    <img src="/img/profile2.jpg" alt="" class="stacked-img">
-                                    <img src="/img/profile3.jpg" alt="" class="stacked-img">
-                                    <img src="/img/profile4.jpg" alt="" class="stacked-img">
-                                    <p>+ 877 more...</p>
+
+                <% if(bids.length <= 0) { %>
+                    
+                <div class="user-dash--nobids">
+                    <div class="user-dash--nobids_content position-center">
+                        <img src="/img/nobids.png" alt="" style="opacity: .8;">
+                        <h2>Uh oh, looks like you haven't placed any bids yet!</h2>
+                        <p>Fortunately, it's very easy to do. But first, we'll need to know
+                        what artists you like.</p>
+                        <a href="/discover" class="btn btn-primary">Discover Artists</a>
+                    </div>
+                </div>
+                    
+                
+                <% } else { %>
+                    <% bids.forEach((bid) => { %> 
+                        <div class="user-dash--card_bid">
+                                <div class="user-dash--card_bidtitle">
+                                    <p>Amount</p>
+                                    <h2>$<%= bid.amount %></h2>
+                                </div>
+                                <div class="user-dash--card_bidinfo">
+                                    <a href="/artists/<%= bid.artistID %>"><%= bid.artistName %></a>
+                                    <p><i class="fas fa-map-marker-alt"></i>  <%= bid.location %></p>
+                                    <div>
+                                        <img src="/img/profile1.jpg" alt="" class="stacked-img">
+                                        <img src="/img/profile2.jpg" alt="" class="stacked-img">
+                                        <img src="/img/profile3.jpg" alt="" class="stacked-img">
+                                        <img src="/img/profile4.jpg" alt="" class="stacked-img">
+                                        <p>+ 877 more...</p>
+                                    </div>
+                                </div>
+                                <figure class="user-dash--card_bidimg">
+                                    <img src="<%= bid.artistImg %>" alt="" class="grid-img">
+                                </figure>
+                                <div class="user-dash--card_bidoptions">
+                                    <button class="user-dash--card_bidbtn">Edit  <i class="far fa-edit"></i></button>
+                                    <form action="/home/bid/<%= bid._id %>?_method=DELETE" method="POST"><button class="user-dash--card_bidbtn">Delete  <i class="far fa-trash-alt"></i></button></form>
+                                    <button class="user-dash--card_bidbtn">Share  <i class="fas fa-share"></i></button>
                                 </div>
                             </div>
-                            <div class="user-dash--card_bidoptions">
-                                <button class="user-dash--card_bidbtn">Edit  <i class="far fa-edit"></i></button>
-                                <button class="user-dash--card_bidbtn">Delete  <i class="far fa-trash-alt"></i></button>
-                                <button class="user-dash--card_bidbtn">Share  <i class="fas fa-share"></i></button>
-                            </div>
-                        </div>
-                <% }); %>
+                   <% }); %> 
+                
+                <% }; %>
+        
 
             </div>
         </div>
+
+        <!-- ARTISTS CONTENT -->
+
+        <div class="user-dash--main_card user-dash--main_content" id="user-dash--artistcontent">
+                <div class="user-dash--main_cardtitle">
+                    <h3 id="user-dash--main_cardtitle">My Artists</h3>
+                </div>
+                <div class="user-dash--main_cardcontent">
+                    
+    
+                   I am favorite artists
+            
+    
+                </div>
+            </div>
     </section>
 
 
@@ -77,6 +113,6 @@
 
 
 
-
+<script src="/js/user-dash.js"></script>
 
 <% include ../partials/footer %>

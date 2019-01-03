@@ -6,6 +6,7 @@ var bidSchema = new mongoose.Schema({
     location: String,
     artistName: String,
     artistID: mongoose.Schema.Types.ObjectId,
+    artistImg: String,
     userID: mongoose.Schema.Types.ObjectId,
     username: String
 });

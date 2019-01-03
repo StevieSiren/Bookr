@@ -5,7 +5,8 @@ const express = require('express'),
       mongoose = require('mongoose'),
       passport = require('passport'),
       LocalStrategy = require('passport-local'),
-      passportLocalMongoose = require('passport-local-mongoose');
+      passportLocalMongoose = require('passport-local-mongoose'),
+      methodOverride = require('method-override');
 
 // REQUIRING THE ROUTES
 const homeRoute = require('./routes/routes-home'),
@@ -28,6 +29,7 @@ app.use(require("express-session")({
 }));
 
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(passport.initialize());
 app.use(passport.session());
