@@ -1,6 +1,7 @@
 const defaultActive = document.querySelector('#user-dash--defaultactive');
 
-const allMenuItems = document.querySelectorAll('.user-dash--menu_item');
+const allMenuItems = document.querySelectorAll('.user-dash--menu_item'),
+      unfollowBtn = document.querySelector('#savedartist-unfollow--btn');
 
 
 // Toggle menu item class
@@ -36,16 +37,6 @@ const toggleDashContent = (contentSection, element) => {
     
 }
 
-
-// Fade the bids in one after another 
-
-// const fadeBids = () => {
-//     var bidList = document.querySelectorAll('.user-dash--card_bid');
-
-//     bidList.forEach((bid) => {
-//         bid.style.animation-delay = 10 / 7;
-//     });
-// }
 
 
 // Functions to run when calling the script

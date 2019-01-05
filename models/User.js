@@ -12,7 +12,6 @@ const userFanSchema = new mongoose.Schema({
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Artist'
-            // This needs to reference the Artist instead
         }
     ],
     savedShows: [
@@ -29,4 +28,4 @@ const userFanSchema = new mongoose.Schema({
 userFanSchema.plugin(passportLocalMongoose);
 
 
-module.exports = mongoose.model('User-Fan', userFanSchema);
+module.exports = mongoose.model('User', userFanSchema);

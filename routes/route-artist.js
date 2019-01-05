@@ -7,7 +7,7 @@ const express = require('express'),
       passportLocalMongoose = require('passport-local-mongoose');
 
 const Artist = require('../models/Artist'),
-      User = require('../models/User-Fan'),
+      User = require('../models/User'),
       Bid = require('../models/Bid');
 
 // ARTIST PROFILE PUBLIC END
@@ -48,8 +48,6 @@ router.get('/:id', isUser,(req, res) => {
         }
     });
 });
-
-
 
 
 
@@ -97,21 +95,37 @@ router.post('/:id/bid', (req, res) => {
     });
 });
 
-router.post('/:id/saved-artist', (req, res) => {
+
+
+
+// SAVE ARTIST ROUTE
+
+router.post('/:id/save', (req, res) => {
     var artistID = req.params.id;
     Artist.findById(artistID, (err, foundArtist) => {
         if(err) {
             console.log(err);
-        } else {
+        } else {            
+            // Push the user ID into the followers list of the artist
+            foundArtist.followers.push(req.user._id);
+            foundArtist.save();
             User.findById(req.user._id).exec((err, foundUser) => {
                 if(err) {
                     console.log(err);
                 } else {
+                    // Push the saved artist into the user's list
                     foundUser.savedArtists.push(foundArtist);
                     foundUser.save();
-                    res.render('profile-artist', {
-                        artist: foundArtist,
-                        currentUser: req.user
+                    Bid.find({}).where('artistID').equals(artistID).exec((err, allBids) => {
+                        if(err) {
+                            console.log(err);
+                        } else {
+                            res.render('profile-artist', {
+                                artist: foundArtist,
+                                currentUser: req.user,
+                                bids: allBids
+                            });
+                        }
                     });
                 }
             });

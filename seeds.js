@@ -28,124 +28,106 @@ var artistData = [
     }
 ];
 
-var showData = [
-    {
-        artist: 'Flying Lotus',
-        location: 'Denver, CO',
-        time: new Date().getDate(),
-        fans: 1377
-    },
-    {
-        artist: 'Foy Vance',
-        location: 'Chicago, IL',
-        time: new Date().getDate(),
-        fans: 478
-    },
-    {
-        artist: 'Jon Bellion',
-        location: 'Los Angeles, CA',
-        time: new Date().getDate(),
-        fans: 6890
-    }
-];
 
-var fanData = [
-    {
-        name: 'Stephen Thomas'
-    },
-    {
-        name: 'Jenn Lawler'
-    }
-];
 
-async function seedShows() {
-    await Shows.remove({}, (err) => {
-        if(err) {
-            console.log(err);
-            console.log('An error occurred when trying to remove all shows from the database.');
-        } else {
-            console.log('Removed all shows!')
-        }
-    });
 
-    // Seed DB with dummy shows
-    showData.forEach((showSeed) => {
-        Shows.create(showSeed, (err, show) => {
-            if(err) {
-                console.log(err);
-                console.log('There was an error when trying to add dummy shows to the database.');
-            } else {
-                console.log('New show added to the DB!');
-            }
-        });
-    });
-}
 
-function seedArtists() {
-// Remove all artists
-Artist.remove({}, (err) => {
-    if(err) {
-        console.log('There was an error!');
-        console.log(err);
-    } else {
-        console.log('Removed all Artists');
-    }
-});
 
-// Add some artists
-artistData.forEach((artistSeed) => {
-    Artist.create(artistSeed, (err, artist) => {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log('New artists added to DB');
-        }
-    });
-});
-}
 
-// GET RANDOM ARTIST
-function getRandomArtist() {
-    return artistData[Math.floor(Math.random() * artistData.length)];
-}
 
-function seedFans() {
-    // Remove all fans
-    Fan.remove({}, (err) => {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log('All fans removed');
-        }
-    });
 
-    // Create new fans & saved artists
-    fanData.forEach((fanSeed) => {
-        Fan.create(fanSeed, (err, fan) => {
-            if(err) {
-                console.log(err);
-            } else {
-                console.log('New fan added.');
-                var randomArtist = getRandomArtist();
-                fan.savedArtists.push(randomArtist);
-                fan.save();
-                console.log('Saved new artist!');
-            }
-        });
-    });
-}
 
-function seedDB() {
+
+
+
+// async function seedShows() {
+//     await Shows.remove({}, (err) => {
+//         if(err) {
+//             console.log(err);
+//             console.log('An error occurred when trying to remove all shows from the database.');
+//         } else {
+//             console.log('Removed all shows!')
+//         }
+//     });
+
+//     // Seed DB with dummy shows
+//     showData.forEach((showSeed) => {
+//         Shows.create(showSeed, (err, show) => {
+//             if(err) {
+//                 console.log(err);
+//                 console.log('There was an error when trying to add dummy shows to the database.');
+//             } else {
+//                 console.log('New show added to the DB!');
+//             }
+//         });
+//     });
+// }
+
+// function seedArtists() {
+// // Remove all artists
+// Artist.remove({}, (err) => {
+//     if(err) {
+//         console.log('There was an error!');
+//         console.log(err);
+//     } else {
+//         console.log('Removed all Artists');
+//     }
+// });
+
+// // Add some artists
+// artistData.forEach((artistSeed) => {
+//     Artist.create(artistSeed, (err, artist) => {
+//         if(err) {
+//             console.log(err);
+//         } else {
+//             console.log('New artists added to DB');
+//         }
+//     });
+// });
+// }
+
+// // GET RANDOM ARTIST
+// function getRandomArtist() {
+//     return artistData[Math.floor(Math.random() * artistData.length)];
+// }
+
+// function seedFans() {
+//     // Remove all fans
+//     Fan.remove({}, (err) => {
+//         if(err) {
+//             console.log(err);
+//         } else {
+//             console.log('All fans removed');
+//         }
+//     });
+
+//     // Create new fans & saved artists
+//     fanData.forEach((fanSeed) => {
+//         Fan.create(fanSeed, (err, fan) => {
+//             if(err) {
+//                 console.log(err);
+//             } else {
+//                 console.log('New fan added.');
+//                 var randomArtist = getRandomArtist();
+//                 fan.savedArtists.push(randomArtist);
+//                 fan.save();
+//                 console.log('Saved new artist!');
+//             }
+//         });
+//     });
+// }
+
+// function seedDB() {
     
-    // SEED ARTISTS
-    seedArtists();
+//     // SEED ARTISTS
+//     seedArtists();
 
-    // Seed shows
-    seedShows();
+//     // Seed shows
+//     seedShows();
 
-    // Seed Fans
-    // seedFans();
+//     // Seed Fans
+//     // seedFans();
  
-};
+// };
 
-module.exports = seedDB;
+// module.exports = seedDB;

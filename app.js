@@ -6,7 +6,8 @@ const express = require('express'),
       passport = require('passport'),
       LocalStrategy = require('passport-local'),
       passportLocalMongoose = require('passport-local-mongoose'),
-      methodOverride = require('method-override');
+      methodOverride = require('method-override'),
+      ejsLint = require('ejs-lint');
 
 // REQUIRING THE ROUTES
 const homeRoute = require('./routes/routes-home'),
@@ -16,7 +17,7 @@ const homeRoute = require('./routes/routes-home'),
 
 // GETTING THE DATA MODELS
 const Artist = require('./models/Artist'),
-      Fan = require('./models/User-Fan');
+      User = require('./models/User');
 
 // ===============================================================================
 // === APP SETUP ====================================================================
@@ -40,10 +41,10 @@ app.use(passport.session());
 //     req.flash('info', 'Hello World');
 //     next();
 // })
-// Passport setup for Fan accounts
-passport.use(new LocalStrategy(Fan.authenticate()));
-passport.serializeUser(Fan.serializeUser());
-passport.deserializeUser(Fan.deserializeUser());
+// Passport setup for User accounts
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Middleware to include currentUser in all routes
 app.use(function(req, res, next) {
@@ -63,9 +64,7 @@ mongoose.connect("mongodb://localhost:27017/bookr-test-data", {useNewUrlParser: 
 // === TEST DATA | SEEDING THE DATABASE ==========================================
 // ===============================================================================
 
-const seedDB = require('./seeds');
 
-// seedDB();
 
 
 // ===============================================================================

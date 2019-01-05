@@ -8,17 +8,14 @@ const modalCloseBtn = document.querySelectorAll('.profile-artist--modal_closebtn
       modalBody = document.querySelector('.profile-artist--modal'),
       bookBtn = document.querySelector('#profile-artist--bookbtn'),
       bidSubmitBtn = document.querySelector('#profile-artist--bidsubmitbtn'),
-      contentTabs = document.querySelectorAll('.profile-artist--content_tab');
+      contentTabs = document.querySelectorAll('.profile-artist--content_tab'),
+      saveBtn = document.querySelector('#profile-artist--savebtn');
 
 const bidModal = document.querySelector('#profile-artist--modalbid');
 
-const saveArtist = () => {
-    console.log('I was clicked');
-    var artistId = 'Flying Lotus';
-    testFan.savedArtistsTest.push(artistId);
-    console.log(testFan);
-};
-
+saveBtn.addEventListener('click', () => {
+    saveBtn.value = 'Saved';
+});
 // saveBtn.addEventListener('click', saveArtist);
 
 

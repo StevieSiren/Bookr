@@ -20,6 +20,11 @@
 @import url('utilities/utilities.css');
 @import url('utilities/elements.css');
 
+:root {
+    --color-primary: #FF7952;
+    --color-secondary-brown: #211523;
+}
+
 * {
     margin: 0;
     padding: 0;

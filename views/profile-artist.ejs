@@ -14,8 +14,10 @@
             <h1><%= artist.name %></h1>
             <!-- <p><%= artist.description %></p> -->
             <div class="profile-artist--top_buttons">
-                <!-- <button class="btn-round--light" id="profile-artist--savebtn"><i class="fas fa-heartbeat"></i> Save</button> -->
                 <button class="btn btn-primary btn-special" id="profile-artist--bookbtn"><i class="fas fa-heartbeat"></i> Bookr Me</button>
+                <form action="/artists/<%= artist._id %>/save" method="POST">
+                    <input class="btn-round--light" type="submit" value="Save" id="profile-artist--savebtn">
+                </form>
                 <!-- <form action="/artists/<%= artist._id %>/saved-artist" method="POST" style="display: inline;">
                     <input type="submit" class="btn-round--light" name="saveArtist" value="Save">
                 </form> -->

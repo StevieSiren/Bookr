@@ -13,6 +13,10 @@ var artistSchema = new mongoose.Schema({
     bids: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Bid'
+    }],
+    followers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }]
 });
 

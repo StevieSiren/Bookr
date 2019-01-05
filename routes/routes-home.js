@@ -8,7 +8,7 @@ const express = require('express'),
       methodOverride = require('method-override');
 
 const Artist = require('../models/Artist'),
-      Fan = require('../models/User-Fan'),
+      User = require('../models/User'),
       Bid = require('../models/Bid');
 
 // HOME PAGE
@@ -25,7 +25,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
-    Fan.register(new Fan({
+    User.register(new User({
         username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -74,17 +74,38 @@ const isLoggedIn = (req, res, next) => {
 // ===============================================================================
 
 // MAIN USER HOME DASH
+
+// router.get('/home', isLoggedIn, (req, res) => {
+//     Artist.find({}, (err, allArtists) => {
+//         if(err) {
+//             console.log(err);
+//         } else {
+//             Bid.find({}).where('userID').equals(req.user._id).exec((err, allBids) => {
+//                 if(err) {
+//                     console.log(err);
+//                 } else {
+//                     res.render('./profiles/user-dash', {
+//                         artists: allArtists,
+//                         currentUser: req.user,
+//                         bids: allBids
+//                     });
+//                 }
+//             });
+//         }
+//     });
+// });
+
 router.get('/home', isLoggedIn, (req, res) => {
-    Artist.find({}, (err, allArtists) => {
+    Artist.find({}).where('followers').equals(req.user._id).exec((err, allArtists) => {
         if(err) {
-            console.log('There was an error getting all the artists.');
+            console.log(err);
         } else {
             Bid.find({}).where('userID').equals(req.user._id).exec((err, allBids) => {
                 if(err) {
                     console.log(err);
                 } else {
                     res.render('./profiles/user-dash', {
-                        artists: allArtists, 
+                        savedArtists: allArtists,
                         currentUser: req.user,
                         bids: allBids
                     });
@@ -110,11 +131,20 @@ router.delete('/home/bid/:id', isLoggedIn, (req, res) => {
     });
 });
 
-
+// DESTROY ROUTE FOR UNFOLLOWING SAVED ARTISTS
+router.delete('/home/unfollow/:id', isLoggedIn, (req, res) => {
+    Artist.findById(req.params.id, (err) => {
+        if(err) {
+            console.log(err);
+        } else {
+            res.redirect('/home');
+        }
+    });
+});
 
 
 router.get('/users/:id', (req, res) => {
-    Fan.findById(req.params.id, (err, foundUser) => {
+    User.findById(req.params.id, (err, foundUser) => {
         if(err) {
             console.log('There was an error finding this user!');
             res.redirect('/home');
