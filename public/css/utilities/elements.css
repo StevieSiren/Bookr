@@ -21,7 +21,7 @@
 
 
 .btn-primary:hover {
-    background-color: rgb(187, 77, 44);
+    background-color: var(--color-primary-hover);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
@@ -288,12 +288,12 @@
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #FF7952; 
+    background: rgb(199, 199, 199); 
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #d46f27; 
+    background: #888; 
   }
 
 

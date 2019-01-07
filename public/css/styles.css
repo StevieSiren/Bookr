@@ -1,5 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700'); */
 @import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700'); 
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,700'); */
 
 @import url('static/navbar.css');
 @import url('static/landing.css');
@@ -21,8 +22,14 @@
 @import url('utilities/elements.css');
 
 :root {
-    --color-primary: #FF7952;
+    --color-primary: #415DF0;
+    --color-primary-hover: #3F4AEE;
+    --color-text-light: #798BF3;
     --color-secondary-brown: #211523;
+
+    --color-text-black: rgb(54, 61, 68);
+    --color-text-black_light: #4D5F73;
+    --color-text-black_lighter: #808E9E;
 }
 
 * {
@@ -31,4 +38,5 @@
     box-sizing: border-box;
     /* font-family: 'Work Sans', sans-serif; */
     font-family: 'Muli', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
 }

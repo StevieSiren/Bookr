@@ -38,7 +38,7 @@
 }
 
 .nav-links a:hover {
-    color: #7685E9;
+    color: var(--color-primary);
 }
 
 .nav-links li {

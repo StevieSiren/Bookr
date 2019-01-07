@@ -22,7 +22,12 @@
     width: 60%;
 }
 
-
+.position-btmleft {
+    position: absolute;
+    top: 85%;
+    left: 85%;
+    transform: translate(-85%, -85%);
+}
 
 
 /* ===================================

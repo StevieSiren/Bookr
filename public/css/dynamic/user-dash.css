@@ -1,19 +1,23 @@
+/* ===============================================================================
+// === HEADER STYLES ==========================================
+// ===============================================================================
+*/
+
 #user-dash--header {
     min-height: 8vh;
 }
 
 .user-dash--header_nav {
-    border-bottom: 1px solid #eee !important;
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 18% 80%;
     height: 8vh;
 }
 
+
 .user-dash--header_div1 img {
-    border-radius: 50%;
-    height: 65px;
+    height: 85px;
     width: auto;
-    margin-left: 25px;
+    /* margin-left: 25px; */
 }
 
 .user-dash--header_div1 h3 {
@@ -21,16 +25,13 @@
     font-size: 1rem;
 }
 
-.user-dash--header_div1 > * {
-    margin: 0 10px;
-}
-
 .user-dash--header_div1 {
     grid-column: 1 / 2;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     border-right: 1px solid #eee;
+    background-color: var(--color-primary);
 }
 
 
@@ -38,8 +39,9 @@
     grid-column: 2 / -1;
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    margin-left: 50px;
+    justify-content: space-between;
+    padding: 0 20px;
+    /* margin-left: 50px; */
     color: #211523;
 }
 
@@ -53,59 +55,138 @@
     background-color: transparent;
 }
 
+.user-dash--header_userdetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #3b3a3b;
+    width: 20%;
+}
+
+#user-dash--userimg {
+    height: 40px;
+    width: 40px;
+    border-radius: 100px;
+}
 
 
 
-/* MAIN SECTION */
+
+/* ===============================================================================
+// === MAIN SECTION LAYOUT ==========================================
+// ===============================================================================
+*/
 
 #user-dash--main {
     height: 92vh;
     display: grid;
-    grid-template-columns: 20% 50% 30%;
+    grid-template-columns: 18% 40% 22% 20%;
     /* overflow: hidden; */
 }
 
 
 
-/* MENU */
+/* ===============================================================================
+// === USER INFO AREA AND DASH MENU ===========================================================================
+// ===============================================================================
+*/
 
 .user-dash--main_left {
     grid-column: 1 / 2;
     border-right: 1px solid #eee;
-    background-color: var(--color-secondary-brown);
+    height: 92vh;
+    display: grid;
+    grid-template-rows: 30% 50% 20%;
 }
+
+.user-dash--main_leftuser {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #415DF0;
+    grid-row: 1 / 2;
+}
+
+.user-dash--main_leftuser h4 {
+    color: #fff;
+}
+
+.user-dash--main_leftuser p {
+    color: var(--color-text-light);
+}
+
+.user-dash--main_leftuser > * {
+    margin: 2px 0;
+}
+
+#user-dash--mainuserimg {
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.user-dash--main_leftuserinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.user-dash--main_leftuserinfo h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.user-dash--main_leftuserstats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+}
+
 
 .user-dash--main_menu {
     margin-top: 15px;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     height: 100%;
+    padding: 20px;
 }
 
 .user-dash--main_menu li i {
     padding-right: 10px;
+    color: var(--color-text-black_light);
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 .user-dash--main_menu li a:link,
 .user-dash--main_menu li a:visited {
     text-decoration: none;
-    color: #fff;
+    color: #211523;
     transition: all .2s ease;
 }
 
 .user-dash--main_menu li {
-    padding-left: 30px;
+    padding: 10px;
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
-    color: #fff;
+    color: var(--color-text-black_lighter);
     cursor: pointer;
+    text-align: center;
     transition: all .2s ease;
+}
+
+.user-dash--main_menu li > * {
+    margin: 4px 0;
 }
 
 .user-dash--main_menu li:hover {
@@ -116,16 +197,47 @@
     font-weight: 700;
 }
 
-.user-dash--main_menu li a:hover {
-    color: #FF7952;
-}
-
-
 
 .user-dash--main_left1 {
-    height: 375px;
-    /* border-bottom: 1px solid #eee; */
+    /* height: 60%; */
+    grid-row: 2 / 3;
 }
+
+.user-dash--left_userstats {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    align-items: center;
+}
+
+.user-dash--left_userstats i {
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+}
+
+.user-dash--left_userstats div {
+    grid-column: 2 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.user-dash--left_userstats div h3 {
+    color: #fff;
+}
+
+.user-dash--left_userstats div p {
+    color: var(--color-text-light);
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -137,7 +249,8 @@
 }
 
 .user-dash--main_center,
-.user-dash--main_right {
+.user-dash--main_right,
+.user-dash--main_end {
     background-color: #E8EAED;
 }
 
@@ -165,7 +278,7 @@
 
 .user-dash--card_bidtitle h2 {
     font-size: 2rem;
-    color: #FF7952;
+    color: var(--color-primary);
 }
 
 .user-dash--card_bidtitle p {
@@ -188,10 +301,15 @@
     color: #3b3a3b;
     cursor: pointer;
     transition: all .2s ease;
+    font-weight: 700;
+}
+
+.user-dash--card_bidinfo p {
+    color: var(--color-text-black_lighter);
 }
 
 .user-dash--card_bidinfo a:hover {
-    color: #FF7952;
+    color: var(--color-primary-hover);
 }
 
 .user-dash--card_bidinfo div {
@@ -202,7 +320,7 @@
 .user-dash--card_bidinfo div p {
     margin-left: 20px;
     font-size: .8rem;
-    color: #FF7952;
+    color: var(--color-primary);
 }
 
 .user-dash--card_bidinfo div img {
@@ -238,8 +356,8 @@
 }
 
 .user-dash--card_bidbtn:hover {
-    color: #FF7952;
-    border-color: #FF7952;
+    color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
 }
 
 
@@ -250,7 +368,7 @@
 */
 
 .user-dash--main_right {
-    grid-column: 3 / -1;
+    grid-column: 3 / 4;
     display: grid;
 }
 
@@ -259,6 +377,12 @@
     height: 70px;
     grid-template-columns: 20% 60% 20%;
     margin: 10px 0;
+    transition: all .2s ease;
+    padding: 5px 10px;
+}
+
+.user-dash--feed_recentbid:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .user-dash--feed_bidimg {
@@ -269,8 +393,8 @@
 }
 
 .user-dash--feed_bidimg img {
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     border-radius: 100px;
 }
 
@@ -288,6 +412,11 @@
 
 .user-dash--feed_bidcontent h3 {
     font-size: 1rem;
+    color: var(--color-text-black);
+}
+
+.user-dash--feed_bidcontent p {
+    color: var(--color-text-black_lighter);
 }
 
 
@@ -300,18 +429,36 @@
 
 .user-dash--feed_biddiscover a:link,
 .user-dash--feed_biddiscover a:visited {
-    color: #FF7952;
+    color: var(--color-text-light);
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     transition: all .2s ease;
 }
 
 .user-dash--feed_biddiscover a:hover {
-    color: rgb(201, 93, 60);
+    color: var(--color-primary);
 }
 
 
-/* PAGE-WIDE STYLES */
+
+
+/* ===============================================================================
+// === FAR RIGHT SECTION ====================================================================
+// ===============================================================================
+*/
+
+.user-dash--main_end {
+    grid-column: 4 / -1;
+}
+
+
+
+
+
+/* ===============================================================================
+// === PAGE-WIDE ELEMENTS ==========================================
+// ===============================================================================
+*/
 
 .user-dash--main_card {
     margin: 20px;
@@ -330,19 +477,29 @@
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #eee;
-    height: 40vh;
-    width: 500px;
+    height: 41vh;
+    /* width: 500px; */
+}
+
+.user-dash--main_card3 {
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #eee;
+    height: 87vh;
+    /* width: 95%; */
 }
 
 
 .user-dash--main_cardtitle {
     grid-row: 1 / 2;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
     font-size: 1.2rem;
-    color: #555;
+    color: #fff;
     letter-spacing: 2px;
     display: flex;
     align-items: center;
+    background-color: var(--color-primary);
 }
 
 .user-dash--main_cardtitle h3 {
@@ -360,13 +517,25 @@
 
 
 
-.user-dash--feed_title h4 {
+.user-dash--feed_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
+    color: var(--color-text-black_light);
+}
+
+.user-dash--feed_title > * {
+    margin: 0 10px;
+}
+
+.user-dash--feed_title h4 {
+    /* position: relative; */
     line-height: 2.5;
     padding-left: 10px;
 }
 
-.user-dash--feed_title h4::after {
+.user-dash--feed_title::after {
     content: '';
     position: absolute;
     top: 100%;
@@ -405,20 +574,24 @@
 /* ACTIVE STYLES */
 
 .user-dash--main_menuactive {
-    color: #FF7952 !important;
-    /* border-top: 1px solid rgba(255, 122, 82, 0.5);
-    border-bottom: 1px solid rgba(255, 122, 82, 0.5);
-    background-color: rgba(255, 122, 82, 0.1); */
+    color: #fff !important;
+}
+
+.user-dash--main_menuactive i {
+    color: #fff;
 }
 
 .user-dash--main_menuactive::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 3px;
-    background-color: #FF7952;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 75%;
+    width: 75%;
+    border-radius: 5px;
+    background-color: var(--color-primary-hover);
+    z-index: -1;
 }
 
 

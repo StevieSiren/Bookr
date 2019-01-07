@@ -5,16 +5,44 @@
 <main id="user-dash--main">
 
     <section class="user-dash--main_left">
+        <div class="user-dash--main_leftuser">
+            <div class="user-dash--main_leftuserinfo">
+                <div style="position: relative;">
+                    <img src="/img/profile1.jpg" alt="" id="user-dash--mainuserimg">
+                    <!-- <div class="position-btmleft" style="background-color: #fff; border-radius: 100px; color: var(--color-primary); height: 20px; width: 20px;">
+                        <i class="fas fa-camera-retro"></i>  
+                    </div> -->
+                </div>
+                <h4><%= currentUser.username %></h4>
+                <p><%= currentUser.email %></p>
+            </div>
+            <div class="user-dash--main_leftuserstats">
+                <div class="user-dash--left_userstats">
+                    <i class="fas fa-users-cog"></i>
+                    <div>
+                        <h3>2930</h3>
+                        <p>Bids</p>
+                    </div>
+                </div>
+                <div class="user-dash--left_userstats">
+                    <i class="fas fa-users-cog"></i>
+                    <div>
+                        <h3>127</h3>
+                        <p>Followers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="user-dash--main_left1">
             <ul class="user-dash--main_menu">
-                <li style="text-transform: uppercase; color: #888;">Menu</li>
-                <li class="user-dash--main_menuactive user-dash--menu_item" onclick="toggleDashContent('user-dash--bidcontent', this)" id="user-dash--defaultactive"><i class="fas fa-ticket-alt"></i> Bids</li>
-                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i> My Artists</li>
-                
-                <li style="text-transform: uppercase; color: #888; font-weight: 300;">Profile Settings</li>
-                <li><a href="/discover"><i class="fas fa-music"></i> Discover</a></li>
-                <li><i class="fas fa-cog"></i> Settings</li>
-                <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li class="user-dash--main_menuactive user-dash--menu_item" onclick="toggleDashContent('user-dash--bidcontent', this)" id="user-dash--defaultactive"><i class="fas fa-ticket-alt"></i><span>Bids</span></li>
+                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i> <span>Artists</span></li>           
+                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i><span>Songs</span></li>
+                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i><span>Profile</span></li>
+                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i><span>Profile</span></li>
+                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i><span>Profile</span></li>
+                <li class="user-dash--menu_item" onclick="toggleDashContent('user-dash--artistcontent', this)"><i class="fas fa-guitar"></i><span>Profile</span></li>
+                <li class="user-dash--menu_item"><i class="fas fa-cog"></i> Settings</li>
             </ul>
         </div>
     </section>
@@ -58,9 +86,9 @@
                                         <p>+ 877 more...</p>
                                     </div>
                                 </div>
-                                <!-- <figure class="user-dash--card_bidimg">
+                                <figure class="user-dash--card_bidimg">
                                     <img src="<%= bid.artistImg %>" alt="" class="grid-img">
-                                </figure> -->
+                                </figure>
                                 <div class="user-dash--card_bidoptions">
                                     <button class="user-dash--card_bidbtn">Edit  <i class="far fa-edit"></i></button>
                                     <form action="/home/bid/<%= bid._id %>?_method=DELETE" method="POST"><button class="user-dash--card_bidbtn">Delete  <i class="far fa-trash-alt"></i></button></form>
@@ -126,69 +154,83 @@
         <div class="user-dash--main_card2">
             
             <div class="user-dash--feed_title">
-                <h4>Recent Bids</h4>
+                <h4>Your Stats</h4>
+                <i class="fas fa-signal"></i>
+            </div>
+        </div>
+
+        <div class="user-dash--main_card2">
+            <div class="user-dash--feed_title">
+                <h4>Weekly Spotlight</h4>
+                <i class="fas fa-bullhorn"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="user-dash--main_end">
+        <div class="user-dash--main_card3">
+            <div class="user-dash--feed_title">
+                <h4>Bids Happening Now</h4>
             </div>
 
             <div class="user-dash--feed_recentbids">
 
-                <div class="user-dash--feed_recentbid">
-                    <figure class="user-dash--feed_bidimg">
-                        <img src="/img/profile2.jpg" alt="">
-                    </figure>
-                    <div class="user-dash--feed_bidcontent">
-                        <h3>Artist Name</h3>
-                        <p>Location</p>
+                    <div class="user-dash--feed_recentbid">
+                        <figure class="user-dash--feed_bidimg">
+                            <img src="/img/profile2.jpg" alt="">
+                        </figure>
+                        <div class="user-dash--feed_bidcontent">
+                            <h3>Artist Name</h3>
+                            <div>
+                                <p>Location</p>
+                            </div>
+                        </div>
+                        <div class="user-dash--feed_biddiscover">
+                            <a href="/discover"><i class="far fa-plus-square"></i></a>
+                        </div>
                     </div>
-                    <div class="user-dash--feed_biddiscover">
-                        <a href="/discover"><i class="far fa-address-card"></i></a>
-                    </div>
-                </div>
-
-                <div class="user-dash--feed_recentbid">
+    
+                    <div class="user-dash--feed_recentbid">
                         <figure class="user-dash--feed_bidimg">
                             <img src="/img/profile3.jpg" alt="">
+                        </figure>
+                        <div class="user-dash--feed_bidcontent">
+                            <h3>Artist Name</h3>
+                            <div>
+                                <p>Location</p>
+                            </div>
+                        </div>
+                        <div class="user-dash--feed_biddiscover">
+                            <a href="/discover"><i class="far fa-plus-square"></i></a>
+                        </div>
+                    </div>
+    
+                    <div class="user-dash--feed_recentbid">
+                        <figure class="user-dash--feed_bidimg">
+                            <img src="/img/profile1.jpg" alt="">
                         </figure>
                         <div class="user-dash--feed_bidcontent">
                             <h3>Artist Name</h3>
                             <p>Location</p>
                         </div>
                         <div class="user-dash--feed_biddiscover">
-                            <a href="/discover"><i class="far fa-address-card"></i></a>
+                            <a href="/discover"><i class="far fa-plus-square"></i></a>
                         </div>
                     </div>
-
+    
                     <div class="user-dash--feed_recentbid">
-                            <figure class="user-dash--feed_bidimg">
-                                <img src="/img/profile1.jpg" alt="">
-                            </figure>
-                            <div class="user-dash--feed_bidcontent">
-                                <h3>Artist Name</h3>
-                                <p>Location</p>
-                            </div>
-                            <div class="user-dash--feed_biddiscover">
-                                <a href="/discover"><i class="far fa-address-card"></i></a>
-                            </div>
+                        <figure class="user-dash--feed_bidimg">
+                            <img src="/img/profile4.jpg" alt="">
+                        </figure>
+                        <div class="user-dash--feed_bidcontent">
+                            <h3>Artist Name</h3>
+                            <p>Location</p>
                         </div>
-                        
-                        <div class="user-dash--feed_recentbid">
-                                <figure class="user-dash--feed_bidimg">
-                                    <img src="/img/profile4.jpg" alt="">
-                                </figure>
-                                <div class="user-dash--feed_bidcontent">
-                                    <h3>Artist Name</h3>
-                                    <p>Location</p>
-                                </div>
-                                <div class="user-dash--feed_biddiscover">
-                                    <a href="/discover"><i class="far fa-address-card"></i></a>
-                                </div>
-                            </div>
-            </div>
-        </div>
-
-        <div class="user-dash--main_card2">
-            <div class="user-dash--feed_title">
-                <h4>Recent Something</h4>
-            </div>
+                        <div class="user-dash--feed_biddiscover">
+                            <a href="/discover"><i class="far fa-plus-square"></i></a>
+                        </div>
+                    </div>
+                </div>
         </div>
     </section>
 
