@@ -1,14 +1,14 @@
 const express = require('express'),
       router = express.Router();
 
-const Artist = require('../models/Artist');
+const User = require('../models/User');
 
 router.get('/', (req, res) => {
-    Artist.find({}, (err, allArtists) => {
+    User.find({}, (err, allUsers) => {
         if(err) {
             console.log('There was an error getting all the artists.');
         } else {
-            res.render('discover-main', {artists: allArtists});
+            res.render('discover-main', {users: allUsers});
         }
     });
 });

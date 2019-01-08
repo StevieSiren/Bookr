@@ -4,14 +4,19 @@ const mongoose = require('mongoose'),
 const userFanSchema = new mongoose.Schema({
     username: String,
     password: String,
-    avatar: String,
+    img: String,
     firstName: String,
     lastName: String,
     email: String,
+    description: String,
+    followers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     savedArtists: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Artist'
+            ref: 'User'
         }
     ],
     savedShows: [

@@ -1,4 +1,4 @@
-<% include partials/header-authenticated %>
+<% include ../partials/header-authenticated %>
 
 <!-- Getting artist.img and artist.name -->
 
@@ -8,19 +8,16 @@
         <h2>BOOKR</h2>
         <a href="/home">Back to profile</a>
     </div>
-    <div class="profile-artist--top" style="background: url('<%= artist.img %>'); background-size: cover; background-repeat: no-repeat;">
+    <div class="profile-artist--top" style="background: url('<%= user.img %>'); background-size: cover; background-repeat: no-repeat;">
         <div class="profile-artist--top_content">
             <h4 style="color: #fefefe; font-weight: 300; letter-spacing: 2px;">ARTIST</h4>
-            <h1><%= artist.name %></h1>
-            <!-- <p><%= artist.description %></p> -->
+            <h1><%= user.username %></h1>
+            <p><%= user.description %></p>
             <div class="profile-artist--top_buttons">
                 <button class="btn btn-primary btn-special" id="profile-artist--bookbtn"><i class="fas fa-heartbeat"></i> Bookr Me</button>
-                <form action="/artists/<%= artist._id %>/save" method="POST">
+                <form action="/artists/<%= user._id %>/save" method="POST">
                     <input class="btn-round--light" type="submit" value="Save" id="profile-artist--savebtn">
                 </form>
-                <!-- <form action="/artists/<%= artist._id %>/saved-artist" method="POST" style="display: inline;">
-                    <input type="submit" class="btn-round--light" name="saveArtist" value="Save">
-                </form> -->
             </div>
             <div class="profile-artist--top_categories">
                 <a href="#" class="btn-category">Acoustic</a>
@@ -45,8 +42,8 @@
     <div class="profile-artist--bottom">
 
         <div class="profile-artist--bottom_content" id="profile-artist--content_bio">
-            <h1><%= artist.description %></h1>
-            <!-- <p><%= artist.description %></p> -->
+            <h1><%= user.description %></h1>
+           
         </div>
 
 
@@ -108,13 +105,13 @@
             <i class="fas fa-times profile-artist--modal_closebtn" style="color: #fff;"></i>
         </div>
         <div class="profile-artist--bidmodal_text">
-            <h1><%= artist.name %></h1>
-            <p>Enter a bid for <%= artist.name %> to come to your city.</p>
+            <h1><%= user.username %></h1>
+            <p>Enter a bid for <%= user.username %> to come to your city.</p>
         </div>
-        <form class="profile-artist--bidmodal_form" id="profile-artist--bidform" action="/artists/<%= artist._id %>/bid" method="POST">
-            <input type="" value="<%= artist.img %>" name="artistImg" style="display: none;">
+        <form class="profile-artist--bidmodal_form" id="profile-artist--bidform" action="/artists/<%= user._id %>/bid" method="POST">
+            <input type="" value="<%= user.img %>" name="artistImg" style="display: none;">
             <input type="text" value="<%= currentUser.username %>" name="username" readonly>
-            <input type="text" value="<%= artist.name %>" name="artistName" readonly>
+            <input type="text" value="<%= user.username %>" name="artistName" readonly>
             <input type="number" placeholder="($) Bid amount" name="bidAmount" required>
             <select name="location">
                 <option value="Los Angeles">Los Angeles</option>
@@ -127,4 +124,4 @@
 
 <script src="/js/profile-artist.js"></script>
 
-<% include partials/footer %>
+<% include ../partials/footer %>

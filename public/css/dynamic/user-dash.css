@@ -4,7 +4,7 @@
 */
 
 #user-dash--header {
-    min-height: 8vh;
+    /* height: 8vh; */
 }
 
 .user-dash--header_nav {
@@ -461,7 +461,7 @@
 */
 
 .user-dash--main_card {
-    margin: 20px;
+    margin: 10px;
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #eee;
@@ -473,7 +473,7 @@
 }
 
 .user-dash--main_card2 {
-    margin: 20px;
+    margin: 10px;
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #eee;
@@ -482,7 +482,7 @@
 }
 
 .user-dash--main_card3 {
-    margin: 20px;
+    margin: 10px;
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #eee;

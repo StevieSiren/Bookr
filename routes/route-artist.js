@@ -30,7 +30,7 @@ const isUser = (req, res, next) => {
 router.get('/:id', isUser,(req, res) => {
     // Find recipe with the provided ID
     var id = req.params.id;
-    Artist.findById(id).exec((err, foundArtist) => {
+    User.findById(id).exec((err, foundUser) => {
         if(err) {
             console.log(err);
         } else {
@@ -38,8 +38,8 @@ router.get('/:id', isUser,(req, res) => {
                 if(err) {
                     console.log(err);
                 } else {
-                    res.render('profile-artist', {
-                        artist: foundArtist,
+                    res.render('./profiles/profile-public', {
+                        user: foundUser,
                         currentUser: req.user,
                         bids: allBids
                     });
@@ -78,18 +78,18 @@ router.post('/:id/bid', (req, res) => {
         });
        
         var id = req.params.id;
-        Artist.findById(id).exec((err, foundArtist) => {
+        User.findById(id).exec((err, foundUser) => {
             if(err) {
                 console.log(err);
             } else {
-                foundArtist.bids.push(bid);
-                foundArtist.save();
+                foundUser.bids.push(bid);
+                foundUser.save();
                 res.render('bid-complete', {
-                    artist: foundArtist,
+                    user: foundUser,
                     currentUser: req.user,
                     bid: bid
                 });
-                // 6
+                
             }
         });
     });
@@ -102,26 +102,26 @@ router.post('/:id/bid', (req, res) => {
 
 router.post('/:id/save', (req, res) => {
     var artistID = req.params.id;
-    Artist.findById(artistID, (err, foundArtist) => {
+    User.findById(artistID, (err, foundUser) => {
         if(err) {
             console.log(err);
         } else {            
             // Push the user ID into the followers list of the artist
-            foundArtist.followers.push(req.user._id);
-            foundArtist.save();
+            foundUser.followers.push(req.user._id);
+            foundUser.save();
             User.findById(req.user._id).exec((err, foundUser) => {
                 if(err) {
                     console.log(err);
                 } else {
                     // Push the saved artist into the user's list
-                    foundUser.savedArtists.push(foundArtist);
+                    foundUser.savedArtists.push(foundUser);
                     foundUser.save();
                     Bid.find({}).where('artistID').equals(artistID).exec((err, allBids) => {
                         if(err) {
                             console.log(err);
                         } else {
-                            res.render('profile-artist', {
-                                artist: foundArtist,
+                            res.render('./profiles/profile-public', {
+                                user: foundUser,
                                 currentUser: req.user,
                                 bids: allBids
                             });

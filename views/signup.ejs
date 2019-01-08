@@ -1,4 +1,4 @@
-<% include partials/header-authenticated %>
+<% include partials/header %>
 
 
 
@@ -24,8 +24,10 @@
 
                         <form action="/signup" method="POST">
                             <input type="text" name="username" placeholder="Username">
-                            <input type="text" name="firstName" placeholder="First Name">
-                            <input type="text" name="lastName" placeholder="Last Name">
+                            <!-- <input type="text" name="firstName" placeholder="First Name">
+                            <input type="text" name="lastName" placeholder="Last Name"> -->
+                            <!-- <input type="radio" name="Artist" value="isArtist">
+                            <input type="radio" name="Fan" value="isFan"> -->
                             <input type="email" name="email" placeholder="you@example.com">
                             <input type="password" name="password" placeholder="Password">
                             <button class="btn btn-primary">Submit</button>

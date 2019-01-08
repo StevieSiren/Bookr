@@ -96,7 +96,7 @@ const isLoggedIn = (req, res, next) => {
 // });
 
 router.get('/home', isLoggedIn, (req, res) => {
-    Artist.find({}).where('followers').equals(req.user._id).exec((err, allArtists) => {
+    User.find({}).where('followers').equals(req.user._id).exec((err, allSavedArtists) => {
         if(err) {
             console.log(err);
         } else {
@@ -105,7 +105,7 @@ router.get('/home', isLoggedIn, (req, res) => {
                     console.log(err);
                 } else {
                     res.render('./profiles/user-dash', {
-                        savedArtists: allArtists,
+                        savedArtists: allSavedArtists,
                         currentUser: req.user,
                         bids: allBids
                     });
@@ -168,16 +168,6 @@ router.get('/logout', (req, res) => {
 
 
 
-// router.get('/discover', (req, res) => {
-//     Artist.find({}, (err, allArtists) => {
-//         if(err) {
-//             console.log('There was an error getting all the artists.');
-//         } else {
-//             // res.sendFile(path.join(__dirname + '/js/profile-artist.js'));
-//             res.render('discover-main', {artists: allArtists});
-//         }
-//     });
-// });
  
 router.get('/about', (req, res) => {
     res.render('static/about');
