@@ -1,51 +1,94 @@
-/* SIDEBAR */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
 
 #sidebar-wrapper {
-    z-index: 1;
-    position: absolute;
-    width: 0;
-    height: 100%;
+    height: 100vh;
+    background-color: #3C4E67;
+    width: 265px;
     overflow-x: hidden;
-    background: #414f66;
-    transition: all .5s ease-out;
+    box-shadow: 5px 0 8px rgba(0, 0, 0, 0.3);
+    transition: all .3s ease-out;
 }
-
-
-/* Main Content */
-
-#page-content--wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-    transition: all .5s ease-out;
-}
-
-
-/* CHANGE WIDTH OF THE SIDEBAR */
 
 #wrapper.sidebar-displayed #sidebar-wrapper {
-    width: 250px;
+    width: 80px;
 }
 
-#wrapper.sidebar-displayed #page-content--wrapper {
-    padding-left: 250px;
+#sidebar-header {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#sidebar-header--content {
+    display: flex;
+    align-items: center;
+}
+
+#sidebar-header--content > * {
+    padding: 0 10px;
+}
+
+#sidebar-header--content h4 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#sidebar-header--img {
+    height: 35px;
+    width: 35px;
+    background-color: #00D8D5;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
 
-/* SIDEBAR STYLING */
+#sidebar-header--burger {
+    cursor: pointer;
+}
 
-.sidebar-nav {
-    padding: 0;
+#sidebar-header--burger div {
+    background-color: #A9B7D0;
+    height: 2.3px;
+    margin: 3px 0;
+    transition: all .3s ease-out;
+}
+
+#sidebar-header--burger:hover div {
+    background-color: #fff;
+}
+
+#burger1 {
+    width: 7px;
+}
+
+#burger2 {
+    width: 17px;
+}
+
+#burger3 {
+    width: 13px;
+}
+
+
+
+#user-dash--navlist {
     list-style: none;
 }
 
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
+#user-dash--navlist li {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    line-height: 21px;
 }
 
-.sidebar-nav li a {
-    text-decoration: none;
-    display: block;
-    cursor: pointer;
-}
